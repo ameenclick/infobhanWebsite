@@ -11782,7 +11782,7 @@ fieldset:disabled .btn {
 
 /* css style */
 :root {
-  --primary-color: #fbb034;
+  --primary-color: #9d7213;
   --secondary-color: #00a4f5;
   --bg-color: #fff;
   --heading-color: #060606;
@@ -19358,7 +19358,7 @@ h3.title-style {
 .w3l-banner:before {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 1300px;
   height: 100%;
   background: var(--banner-layer);
   z-index: -1;
@@ -19406,7 +19406,7 @@ p.banner-sub {
   line-height: 30px;
 }
 
-.sub-banner-image {
+/* .sub-banner-image {
   border-radius: 67% 33% 28% 72% / 59% 51% 49% 41%;
   text-align: center;
   max-width: 450px;
@@ -19419,18 +19419,18 @@ p.banner-sub {
   position: absolute;
   top: -162px;
   right: 0px;
-}
+} */
 
 .banner-style-1 {
   top: 0;
   left: -20px;
 }
 
-.banner-style-2 {
+/* .banner-style-2 {
   background: var(--secondary-color);
   padding: 25px 30px;
   border-radius: 50%;
-}
+} */
 
 .banner-style-2 h4 {
   color: #fff;
