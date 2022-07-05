@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/infobhan/prototype
+    - /bin/cp -r * $DEPLOYPATH

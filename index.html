@@ -14,18 +14,69 @@ Author URL: http://w3layouts.com
     <link rel = "icon" href = 
 "./assets/images/logo.jpg" 
         type = "image/x-icon">
+
+         <!--SEO-->
+    <meta name="description" content="Infobhan Provide technology products, services, knowhow and solutions that are qualitatively process
+    oriented with full life cycle at competitive cost of
+    ownership (COO) and return on investment (ROI)"/>
+
+    <meta name="keywords" content="INFOBHAN, Infobhan, Infobhan Systems, Infobhan Systems & Services, IT Solutions in Qatar, IT Consultation in Qatar, Deliver Values Through Services,Printer Repair in Qatar,
+    Network Cabling in Qatar,
+    PC Repair in Qatar,
+    IT Support in Qatar,
+    IT Service Desk in Qatar,
+    Web Hosting in Qatar,
+    Web Development in Qatar,
+    Email hosting in Qatar,
+    IT Infrastructure in Qatar,
+    IT Maintenance in Qatar"/>
+    
+    <!-- OG Tags-->
+    <meta property="og:title" content="Infobhan Systems & Services"/>
+    <meta property="og:description" content="Provide technology products, services, knowhow and solutions that are qualitatively process
+    oriented with full life cycle at competitive cost of
+    ownership (COO) and return on investment (ROI)"/>
+    <meta property="og:image" content="assets\images\banner.png"/>
+
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3YPGJ4RLGH"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3YPGJ4RLGH');
+    </script>
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <!--W3 Animations-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- Social Media Hanldes-->
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="ba1sz83Z"></script>
+
+    <script>
+        function pageNotFound(){
+            return alert("Page under construction...")
+        }
+    </script>
 </head>
 
-<body>
+<body class="w3-animate-opacity">
     <!-- header -->
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-                <a class="navbar-brand" href="index.html"><img src="./assets/images/Company.png" height="65" width="200" alt="INFOBHAN"/>
+                <a class="navbar-brand" href="index.html"><img src="./assets/images/Company.png" height="65px" width="200px" alt="INFOBHAN"/>
                 </a>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
@@ -38,56 +89,37 @@ Author URL: http://w3layouts.com
                             <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="courses.html">Services</a>
+                            <a class="nav-link" href="services.html">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://infobhan.shop">Shop</a>
+                            <a class="nav-link" href="https://infobhan.shop" target="_blank">Shop</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                     </ul>
-                    <!-- search-right -->
-                    <div class="header-search position-relative">
-                        <div class="search-right mx-lg-2">
-                            <a href="#search" class="btn search-btn p-0" title="search">
-                                <i class="fas fa-search"></i></a>
-                            <!-- search popup -->
-                            <div id="search" class="pop-overlay">
-                                <div class="popup">
-                                    <form action="#search" method="GET" class="search-box">
-                                        <input type="search" placeholder="Enter Keyword..." name="search"
-                                            required="required" autofocus="">
-                                        <button type="submit" class="btn"><span class="fas fa-search"
-                                                aria-hidden="true"></span></button>
-                                    </form>
-                                </div>
-                                <a class="close" href="#close">×</a>
-                            </div>
-                            <!-- //search popup -->
                         </div>
                     </div>
-                    <!--//search-right-->
+                    <!--//search-right -->
                 </div>
-                <!-- toggle switch for light and dark theme -->
-                <div class="cont-ser-position">
-                    <nav class="navigation">
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox">
-                                <div class="mode-container">
-                                    <i class="gg-sun"></i>
-                                    <i class="gg-moon"></i>
-                                </div>
-                            </label>
-                        </div>
-                    </nav>
-                </div>
-                <!-- //toggle switch for light and dark theme -->
             </nav>
         </div>
     </header>
     <!-- //header -->
+
+    <div class="row fixed-bottom mb-5">
+        <div class="col">
+            <a class="float-end btn btn-lg btn-danger mt-2 w3-animate-zoom zoom-infinite" target="_blank" href="assets/pdf/Company Profile New_opt-A.pdf">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-check" viewBox="0 0 16 16">
+                    <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                  </svg> Profile
+            </a>
+        </div>
+    </div>
 
     <!-- banner section -->
     <section id="home" class="w3l-banner py-5">
@@ -95,23 +127,27 @@ Author URL: http://w3layouts.com
             <div class="container py-4">
                 <div class="row align-items-center pt-sm-5 pt-4">
                     <div class="col-md-6">
-                        <h3 class="mb-lg-4 mb-3">Since 1996<span class="d-block">We Deliver Values Through Services</span>
+                        <h1 class="mb-lg-2 mb-3" style="font-weight: bold;">Since 1996</h1>
+                        <h3 class="mb-lg-4 mb-3"  style="font-weight: lighter;">
+                            <div class="d-lg-block">We Deliver Values Through Services</div>
                         </h3>
-                        <p class="banner-sub">Sales, Systems, Services, Support & Solutions</p>
+                        <p class="banner-sub">Comprehensive IT Support services at Qatar</p>
                         <div class="d-flex align-items-center buttons-banner">
                             <a href="contact.html" class="btn btn-style mt-lg-5 mt-4">Connect us</a>
                             <a href="https://infobhan.shop" target="_blank" class="btn btn-style mt-lg-5 mt-4 mx-2"><i class="fas fa-shopping-cart"></i> Shop</a>
                         </div>
+                        <!-- Display the countdown timer in an element -->
+                        <div class="mt-4 text-white">
+                            <h2 class="ps-lg-5" style="font-size: xx-large" id="demo"></h2>
+                        </div>
                     </div>
-                    <div class="col-md-6 right-banner-2 text-end position-relative mt-md-0 mt-5">
-                        <div class="sub-banner-image mx-auto">
-                            <img src="assets/images/banner.png" class="img-fluid position-relative" alt=" ">
+                    <div class="col-md-6 text-end">
+                        <div class="sub-banner-image">
+                            <img src="assets/images/banner.png" class="img-fluid" alt=" ">
                         </div>
-                        <div class="d-lg-none d-xl-block justify-content-center" style="overflow: auto; opacity: 0.7;">
-                            <img src="./assets/images/iso.png" class="img-fluid" height="150px" width="200px"/>
-                        </div>
-                        <div class="float-end d-none d-lg-block d-xl-none" style="overflow: auto; opacity: 0.7;">
-                            <img src="./assets/images/iso.png" class="img-fluid" height="150px" width="200px"/>
+                        <div class="" style="opacity: 0.87;">
+                            <img src="./assets/images/25Years.png" class="img-fluid float-start w3-animate-zoom" height="25%" width="25%"/>
+                            <img src="./assets/images/iso.png" class="img-fluid float-end w3-animate-zoom" height="35%" width="35%"/>
                         </div>
                     </div>
                 </div>
@@ -119,13 +155,45 @@ Author URL: http://w3layouts.com
         </div>
     </section>
     <!-- //banner section -->
+        
+        <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Nov 20, 2022 24:00:00").getTime();
+        
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+          // Get today's date and time
+          var now = new Date().getTime();
+        
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
+        
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+          // Display the result in the element with id="demo"
+          document.getElementById("demo").innerHTML = "<b>FIFA 2022 <img class='rounded' src='./assets/images/flag.jpg' height='30px' width='45px'/> in</b><br/>"+ days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s";
+        
+          // If the count down is finished, write some text
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "";
+          }
+        }, 1000);
+        </script>
+        <!-- Display the countdown timer in an element -->
 
     <!-- courses section -->
     <div class="w3l-grids-block-5 home-course-bg py-5" id="courses">
         <div class="container py-md-5 py-4">
             <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
                 <p class="text-uppercase">Our Services</p>
-                <h3 class="title-style">Find What You Need.</h3>
+                <h3 class="title-style">Know us professionally.</h3>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6">
@@ -133,14 +201,14 @@ Author URL: http://w3layouts.com
                         <div class="grids5-info position-relative">
                             <img src="assets/images/p3.jpg" alt="" class="img-fluid" />
                             <div class="meta-list">
-                                <a href="courses.html">Infrastructure</a>
+                                <a href="services.html">Infrastructure</a>
                             </div>
                         </div>
                         <div class="content-main-top">
-                            <h4><a href="courses.html">Infrastructure Solutions</a></h4>
+                            <h4><a href="services.html" >Infrastructure Solutions</a></h4>
                             <p>We provide the quality infrastructure development and Maintain anywhere in Qatar.</p>
                             <div class="top-content-border d-flex align-items-center justify-content-between mt-4 pt-4">
-                                <!-- <h6>$36.00</h6> -->
+    
                                 <a class="btn btn-style-primary" data-bs-toggle="collapse" href="#collapseInfra" role="button" aria-expanded="false" aria-controls="collapseInfra">Services<i
                                     class="fas fa-arrow-down"></i></a>
                             </div>
@@ -174,20 +242,14 @@ Author URL: http://w3layouts.com
                 <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
                     <div class="coursecard-single">
                         <div class="grids5-info position-relative">
-                            <img src="assets/images/c2.jpg" alt="" class="img-fluid" />
+                            <img src="assets/images/outsourcing.jpg" alt="" class="img-fluid" />
                             <div class="meta-list">
-                                <a href="courses.html" class="sec-2">IT Outsource</a>
+                                <a href="services.html" class="sec-2">IT Outsource</a>
                             </div>
                         </div>
                         <div class="content-main-top">
-                            <!-- <div class="content-top mb-4 mt-3">
-                                <ul class="list-unstyled d-flex align-items-center justify-content-between">
-                                    <li> <i class="fas fa-book-open"></i> 72 Lesson</li>
-                                    <li> <i class="fas fa-star"></i> 4.3</li>
-                                </ul>
-                            </div> -->
-                            <h4><a href="courses.html">IT Outsource Services</a></h4>
-                            <p>Out team provide quality Service Desk Operations, Server & Data Center Operations, IT support & service with opmtimal pricing.</p>
+                            <h4><a href="services.html" >IT Outsource Services</a></h4>
+                            <p>Our team provide quality Service Desk Operations, Server & Data Center Operations, IT support & service with opmtimal pricing.</p>
                             <div class="top-content-border d-flex align-items-center justify-content-between mt-4 pt-4">
                                 <!-- <h6>$36.00</h6> -->
                                 <a class="btn btn-style-primary" data-bs-toggle="collapse" href="#collapseOutsource" role="button" aria-expanded="false" aria-controls="collapseOutsource">Services<i
@@ -232,14 +294,8 @@ Author URL: http://w3layouts.com
                             </div>
                         </div>
                         <div class="content-main-top">
-                            <!-- <div class="content-top mb-4 mt-3">
-                                <ul class="list-unstyled d-flex align-items-center justify-content-between">
-                                    <li> <i class="fas fa-book-open"></i> 14 Lesson</li>
-                                    <li> <i class="fas fa-star"></i> 4.2</li>
-                                </ul>
-                            </div> -->
-                            <h4><a href="courses.html">Web & Cloud Solutions</a></h4>
-                            <p>We provide consultation, support and maintance of corporate email services, Web and other cloud services.</p>
+                            <h4><a href="services.html">Web & Cloud Solutions</a></h4>
+                            <p>We provide consultation, support and maintanance of corporate email services, Web and other cloud services.</p>
                             <div class="top-content-border d-flex align-items-center justify-content-between mt-4 pt-4">
                                 <!-- <h6>$30.00</h6> -->
                                 <a class="btn btn-style-primary" data-bs-toggle="collapse" href="#collapseWeb" role="button" aria-expanded="false" aria-controls="collapseWeb">Services<i
@@ -277,7 +333,7 @@ Author URL: http://w3layouts.com
                 </div>
             </div>
             <div class="text-center mt-sm-5 mt-4 pt-sm-0 pt-1">
-                <a class="btn btn-style btn-style-secondary mt-sm-3" href="courses.html">
+                <a class="btn btn-style btn-style-secondary mt-sm-3" href="services.html" >
                     Know more about services</a>
             </div>
         </div>
@@ -287,31 +343,36 @@ Author URL: http://w3layouts.com
     <!-- Mission & Vision home 4grids block -->
     <section class="services-w3l-block py-5" id="features">
         <div class="container py-md-5 py-4">
-            <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+            <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px ;">
                 <h3 class="title-style">Mission & Vision</h3>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-6 d-flex align-items-stretch">
-                    <div class="icon-box icon-box-clr-1">
-                        <div class="icon"><i class="fas fa-user-friends"></i></div>
-                        <h4 class="title"><a href="#about">Mission</a></h4>
-                        <p>“ To provide products, services, training and solutions that are of international quality and standards, backed by full life cycle management and support, at fare cost of ownership. ”</p>
+            <div class="row justify-content-center" >
+                <div class="col-md-6 col-lg-5 d-flex align-items-stretch mt-md-0 mt-4">
+                    <div class="icon-box icon-box-clr-1"style="border-radius: 20px;background: linear-gradient(#e03e18,#8a5d26, #1f1a17)";>
+                        <div class="icon"><i class="fas fa-user-friends" style="color: rgb(61, 226, 61);"></i></div>
+                        <h4 class="title"><a href="#about" style="color: white;">Mission</a></h4>
+                        <p style="color: white;">“ Provide technology products, services, knowhow and solutions that are qualitatively process 
+                            oriented with full life cycle at competitive cost of 
+                            ownership (COO) and return on investment (ROI)."</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-6 d-flex align-items-stretch mt-md-0 mt-4">
-                    <div class="icon-box icon-box-clr-2">
+                <div class="col-md-6 col-lg-5 d-flex align-items-stretch mt-md-0 mt-4">
+                    <div class="icon-box icon-box-clr-2"style="border-radius: 20px;background: linear-gradient(#e03e18,#8a5d26, #1f1a17)";>
                         <div class="icon"><i class="fas fa-book-reader"></i></div>
-                        <h4 class="title"><a href="#about">Vision</a></h4>
-                        <p>“Build and Maintain the IT best practices and processes”</p>
+                        <h4 class="title"><a href="#about" style="color: white;">Vision </a></h4>
+                        <p style="color: white;">"Help to Build Reliable IT Infrastructure throughout 
+                            various businesses of Humanity that challenges 
+                            change against time. To support Qatar on its 
+                            national and global visions, ideals and goals"</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center mt-4">   
                 <div class="col-md-6 col-lg-8 d-flex align-items-stretch mt-lg-0 mt-4">
-                    <div class="icon-box icon-box-clr-3">
+                    <div class="icon-box icon-box-clr-3" style="border-radius: 20px;background: linear-gradient(#e03e18,#8a5d26, #1f1a17)";>
                         <div class="icon"><i class="fas fa-university"></i></div>
-                        <h4 class="title"><a href="#about">Policy</a></h4>
-                        <p>"The primary goal of Infobhan Systems and Services is to achieve the highest standards of quality in all business unit's practices and operations without compromise. We believe in learning customers' needs and wishes to be able to anticipate their needs and develop inter dependence. Our objective is to continuously improve our company performance, while offering our customers a cost effective and professional service."</p>
+                        <h4 class="title"><a href="#about" style="color: white;">Policy</a></h4>
+                        <p style="color: white;">"The primary goal of Infobhan Systems and Services is to achieve the highest standards of quality in all business unit's practices and operations without compromise. We believe in learning customers' needs and wishes to be able to anticipate their needs and develop inter dependence. Our objective is to continuously improve our company performance, while offering our customers a cost effective and professional service."</p>
                     </div>
                 </div>
             </div>
@@ -330,20 +391,22 @@ Author URL: http://w3layouts.com
                     <div class="imginfo__box">
                         <h6 class="imginfo__title">Get in Touch Today!</h6>
                         <!-- <p>Nemo enim ipsam oluptatem quia oluptas<br> sit aspernatur aut odit aut fugit. </p> -->
-                        <a href="tel:+97455550286"><i class="fas fa-phone-alt"></i> +97455550286</a>
+                        <a class="text-dark" href="tel:+97444418286"><i class="fas fa-phone-alt"></i> +974 44418286</a>
                     </div>
+                    
                 </div>
                 <div class="col-xl-5 col-lg-6 offset-xl-1 mt-lg-0 mt-5 pt-lg-0 pt-5">
-                    <h3 class="title-style">We serve our Clients with Consistant Quality</h3>
-                    <p class="mt-4">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                        ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.</p>
+                    <h3 class="title-style">We have been serving in Qatar for 25+ years</h3>
                     <ul class="mt-4 list-style-lis pt-lg-1">
-                        <li><i class="fas fa-check-circle"></i>Consistant support</li>
-                        <li><i class="fas fa-check-circle"></i>Access more then 100K online courses</li>
-                        <li><i class="fas fa-check-circle"></i>Traditional Academies</li>
+                        <li><i class="fas fa-check-circle"></i>Business outsource</li>
+                        <li><i class="fas fa-check-circle"></i>Service orientation</li>
+                        <li><i class="fas fa-check-circle"></i>Projectized operations</li>
+                        <li><i class="fas fa-check-circle"></i>Comprehensive solutions</li>
+                        <li><i class="fas fa-check-circle"></i>Updated technology</li>
+                        <li><i class="fas fa-check-circle"></i>Process compliance</li>
+                        <li><i class="fas fa-check-circle"></i>Infrastructure services</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-style mt-5">Apply Now</a>
+                    <a href="contact.html" class="btn btn-style mt-5">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -385,32 +448,28 @@ Author URL: http://w3layouts.com
             <div class="row justify-content-center text-center pt-4">
                 <div class="col-md-3 col-6">
                     <div class="counter">
-                        <img src="assets/images/icon-1.png" alt="" class="img-fluid">
-                        <div class="timer count-title count-number mt-sm-1" data-to="2500" data-speed="1500"></div>
+                        <img src="assets/images/icon-2.png" alt="" class="img-fluid">
+                        <div class="timer count-title count-number mt-sm-1" data-to="2504" data-speed="1500"></div>
                         <p class="count-text">Projects</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="counter">
-                        <img src="assets/images/icon-2.png" alt="" class="img-fluid">
-                        <div class="timer count-title count-number mt-3" data-to="786" data-speed="1500"></div>
+                        <img src="assets/images/client.png" alt="" class="img-fluid">
+                        <div class="timer count-title count-number mt-3" data-to="1226" data-speed="1500"></div>
                         <p class="count-text">Clients</p>
                     </div>
                 </div>
-                <!-- <div class="col-md-3 col-6 mt-md-0 mt-5">
-                    <div class="counter">
-                        <img src="assets/images/icon-3.png" alt="" class="img-fluid">
-                        <div class="timer count-title count-number mt-3" data-to="3630" data-speed="1500"></div>
-                        <p class="count-text">Total Courses</p>
-                    </div>
-                </div> -->
                 <div class="col-md-3 col-6 mt-md-0 mt-5">
                     <div class="counter">
-                        <img src="assets/images/icon-4.png" alt="" class="img-fluid">
-                        <div class="timer count-title count-number mt-3" data-to="30" data-speed="1500"></div>
-                        <p class="count-text">Awards Won</p>
+                        <img src="assets/images/icon-1.png" alt="" class="img-fluid">
+                        <div class="timer count-title count-number mt-3" data-to="50" data-speed="1500"></div>
+                        <p class="count-text">Staffs</p>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <p class="text-center">We have 148 Active Clients</p>
             </div>
         </div>
     </section>
@@ -419,104 +478,79 @@ Author URL: http://w3layouts.com
     <!-- testimonials block -->
     <section class="w3l-index4 py-5" id="testimonials">
         <div class="container py-md-5 py-4"><h3 class="text-white text-center">We Served</h3>
-            <div class="content-slider text-center">
-                <div class="clients-slider mt-5">
-                    <div class="mask">
+            <div class="content-slider text-center  pt-5">
+                <div class="clients-slider">
+                    <div class="mask mt-3">
                         <ul>
                             <li class="anim1">
-                                <div class="source">FIFA 2022</div>
+                                <img src="./assets/images/fifalogo2.png" height="120px" width="40px" alt="logo"/>
+                                <div class="source"><a target="_blank" href="https://www.fifa.com/tournaments/mens/arabcup">FIFA Arab Cup 2021</a> & <a target="_blank" href="https://www.fifa.com/tournaments/mens/worldcup/qatar2022">FIFA 2022</a></div>
                             </li>
-
                             <li class="anim2">
-                                <div class="source">FIFA Arab Cup 2021</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-thermometer-sun" viewBox="0 0 16 16">
+                                    <path d="M5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585A1.5 1.5 0 0 1 5 12.5z"/>
+                                    <path d="M1 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM3.5 1A1.5 1.5 0 0 0 2 2.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0L5 10.486V2.5A1.5 1.5 0 0 0 3.5 1zm5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5zm4.243 1.757a.5.5 0 0 1 0 .707l-.707.708a.5.5 0 1 1-.708-.708l.708-.707a.5.5 0 0 1 .707 0zM8 5.5a.5.5 0 0 1 .5-.5 3 3 0 1 1 0 6 .5.5 0 0 1 0-1 2 2 0 0 0 0-4 .5.5 0 0 1-.5-.5zM12.5 8a.5.5 0 0 1 .5-.5h1a.5.5 0 1 1 0 1h-1a.5.5 0 0 1-.5-.5zm-1.172 2.828a.5.5 0 0 1 .708 0l.707.708a.5.5 0 0 1-.707.707l-.708-.707a.5.5 0 0 1 0-.708zM8.5 12a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5z"/>
+                                  </svg>
+                                <div class="source"><a target="_blank" href="https://qapco.com/">QAPCO</a></div>
                             </li>
                             <li class="anim3">
-                                <div class="source">QAPCO</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+                                    <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+                                  </svg>
+                                <div class="source"><a target="_blank" href="https://www.qataridiar.com/English/Pages/default.aspx">Qatari Diar</a></div>
                             </li>
                             <li class="anim4">
-                                <div class="source">QVC-Qatar Vinely Corporatation</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
+                                    <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
+                                  </svg>
+                                <div class="source"><a target="_blank" href="https://www.qatarsteel.com.qa/">Qatar Steel</a></div>
                             </li>
                             <li class="anim5">
-                                <div class="source">Qatar Steel</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+                                    <path d="M8 .95 14.61 4h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.379l.5 2A.5.5 0 0 1 15.5 17H.5a.5.5 0 0 1-.485-.621l.5-2A.5.5 0 0 1 1 14V7H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 4h.89L8 .95zM3.776 4h8.447L8 2.05 3.776 4zM2 7v7h1V7H2zm2 0v7h2.5V7H4zm3.5 0v7h1V7h-1zm2 0v7H12V7H9.5zM13 7v7h1V7h-1zm2-1V5H1v1h14zm-.39 9H1.39l-.25 1h13.72l-.25-1z"/>
+                                </svg>
+                                <div class="source"><a target="_blank" href="https://qm.org.qa/en/">Qatar Museum Authority</a></div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <h5 class="text-center">As per trademark policy we are not showing our clients official &trade;</h5>
         </div>
     </section>
     <!-- //testimonials block -->
-
-    <!-- blog block -->
+<!-- Patners slide-->
+<div>
     <div class="w3l-blog-block-5 py-5" id="blog">
         <div class="container py-md-5 py-4">
             <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
-                <p class="text-uppercase">Our News</p>
-                <h3 class="title-style">Latest <span>Blog</span> Posts</h3>
+                <h3 class="text">Brand Partners</h3>
+               
+            </div>
+            <div class="row justify-content-center"> 
+                <div class="col-auto mx-5 my-5"> 
+                    <a href="https://www.remotepc.com/rpcnew/signup/pref/7711"><img src ="https://www.remotepc.com/Webclient/source/images/badge-rmp-reseller.png" width="100" height="100" border="0" title="Authorized Partner" alt="Authorized Partner"/></a>
+                </div> 
+                <div class="col-auto mx-5 my-5"> 
+                    <img src="./assets/images/ms.png" height="50px"width="150px" alt="MicroSoft">
+                </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-card-single">
-                        <div class="grids5-info">
-                            <a href="#blog"><img src="assets/images/blog2.jpg" alt="" /></a>
-                            <div class="blog-info">
-                                <h4><a href="#blog">Education Programs...</a></h4>
-                                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sunt inc
-                                    officia deserunt.</p>
-                                <div class="d-flex align-items-center justify-content-between mt-4">
-                                    <a class="d-flex align-items-center" href="#blog" title="23k followers">
-                                        <img class="img-fluid" src="assets/images/testi2.jpg" alt="admin"
-                                            style="max-width:40px"> <span class="small ms-2">Eetey Cruis</span>
-                                    </a>
-                                    <p class="date-text"><i class="far fa-calendar-alt me-1"></i>Oct 06, 2021</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-auto mx-4 my-5"> 
+                    <img src="./assets/images/hp.png" height="50px"width="150px" alt="HP">
                 </div>
-                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
-                    <div class="blog-card-single">
-                        <div class="grids5-info">
-                            <a href="#blog"><img src="assets/images/blog1.jpg" alt="" /></a>
-                            <div class="blog-info">
-                                <h4><a href="#blog">Games Programs...</a></h4>
-                                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sunt inc
-                                    officia deserunt.</p>
-                                <div class="d-flex align-items-center justify-content-between mt-4">
-                                    <a class="d-flex align-items-center" href="#blog" title="23k followers">
-                                        <img class="img-fluid" src="assets/images/testi1.jpg" alt="admin"
-                                            style="max-width:40px"> <span class="small ms-2">Molive Joe</span>
-                                    </a>
-                                    <p class="date-text"><i class="far fa-calendar-alt me-1"></i>Oct 10, 2021</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-auto mx-5 my-5"> 
+                    <img src="./assets/images/cisco.png" height="95px"width="150px" alt="CISCO">
                 </div>
-                <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
-                    <div class="blog-card-single">
-                        <div class="grids5-info">
-                            <a href="#blog"><img src="assets/images/blog3.jpg" alt="" /></a>
-                            <div class="blog-info">
-                                <h4><a href="#blog">Articles Programs...</a></h4>
-                                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sunt inc
-                                    officia deserunt.</p>
-                                <div class="d-flex align-items-center justify-content-between mt-4">
-                                    <a class="d-flex align-items-center" href="#blog" title="23k followers">
-                                        <img class="img-fluid" src="assets/images/testi3.jpg" alt="admin"
-                                            style="max-width:40px"> <span class="small ms-2">Turne Leo
-                                        </span>
-                                    </a>
-                                    <p class="date-text"><i class="far fa-calendar-alt me-1"></i>Oct 12, 2021</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-auto mx-5 my-5" align="center"> 
+                    <img src="./assets/images/dell.png" height="65px"width="65px" alt="DELL"><br/>
+                    <p>Reseller</p>
+                </div>  
             </div>
         </div>
     </div>
-    <!-- //blog block -->
+</div>
 
     <!-- call block -->
     <section class="w3l-call-to-action-6">
@@ -529,9 +563,9 @@ Author URL: http://w3layouts.com
                 <div class="right-content-call mt-lg-0 mt-4">
                     <ul class="buttons">
                         <li class="phone-sec me-lg-4"><i class="fas fa-phone-volume"></i>
-                            <a class="call-style-w3" href="tel:+97455550286">+00974 55550286</a>
+                            <a class="call-style-w3" href="tel:+97444418286">+974 44418286</a>
                         </li>
-                        <li><a href="contact.html" class="btn btn-style btn-style-2 mt-lg-0 mt-3">Join for free</a>
+                        <li><a href="https://wa.me/97470691949" class="btn btn-style btn-style-2 mt-lg-0 mt-3" style="background-color:	#2ab200;"><img src="./assets/images/whatsapp.webp" height="40px" width="40px" alt=""/>Chat</a>
                         </li>
                     </ul>
                 </div>
@@ -539,6 +573,31 @@ Author URL: http://w3layouts.com
         </div>
     </section>
     <!-- //call block -->
+
+    <!-- Twitter Hanldes-->
+    <div class="container" onload="loadFB()">
+        <h2 class="text-center"><b>Social Media Updates</b></h2>
+        <div class="row justify-content-center">
+            <!--Twitter API-->
+            <div class="col-lg-5 col-sm-4 mx-lg-3  my-3">
+                <a id="twitterPost" class="twitter-timeline" data-lang="en" data-width="500px" data-height="500px" data-theme="light" href="https://twitter.com/InfobhanSystems?ref_src=twsrc%5Etfw">Tweets by InfobhanSystems</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <!--FB API-->
+            <div class="col-lg-5 col-sm-4 mx-lg-3  my-3">
+                <div id="fbPost" class="fb-page" data-href="https://www.facebook.com/infobhan" data-tabs="timeline" data-width="500px" data-height="500px" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/infobhan" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/infobhan">Infobhan Systems &amp; Services</a></blockquote></div>
+            </div> 
+        </div>
+    </div>
+
+    <script>
+        function loadFB(){
+            if(screen.width < 500)
+            {
+                document.getElementById("fbPost").style.width=screen.width
+                document.getElementById("twitterPost").style.width=screen.width
+            }      
+        }
+    </script>
 
     <!-- footer block -->
     <footer class="w3l-footer-29-main">
@@ -549,27 +608,24 @@ Author URL: http://w3layouts.com
                         <h6 class="footer-title-29">Contact Info </h6>
                         <p class="mb-2 pe-xl-5">Address : Office No. 2, Building No. 53, Street No. 76, <br/> SAEED BIN BASHEER ST.,<br/> ZONE NO.55, AL AZIZIYYA </br>7711 DOHA</br>QATAR.
                         </p>
-                        <p class="mb-2">Phone Number : <a href="tel:+97455550286">+00974 55550286</a></p>
+                        <p class="mb-2">Phone Number : <a href="tel:+97444418286">+974 44418286</a></p>
                         <p class="mb-2">Email : <a href="mailto:info@infobhan.net">info@infobhan.net</a></p>
                     </div>
                     <div class="col-lg-2 col-md-3 col-6 footer-list-29 mt-md-0 mt-4">
                         <ul>
                             <h6 class="footer-title-29">Quick Links</h6>
                             <li><a href="about.html">About Us</a></li>
-                            <li><a href="courses.html">Courses</a></li>
+                            <li><a href="services.html">Services</a></li>
                             <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="#career">Careers</a></li>
+                            <!-- <li><a href="#career">Careers</a></li> -->
                         </ul>
                     </div>
                     <div class="col-lg-2 col-md-3 col-6 ps-lg-5 ps-lg-4 footer-list-29 mt-md-0 mt-4">
                         <ul>
                             <h6 class="footer-title-29">Explore</h6>
-                            <li><a target="=_blank" href="https://blog.infobhan.net">Blog Posts</a></li>
-                            <li><a href="#privacy">Privacy policy</a></li>
                             <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="#license">License & uses</a></li>
-                            <li><a href="#tutorials">Tutorials</a></li>
                         </ul>
+                        <img src="assets/images/InfobhanQR.jpeg" height="75%" width="75%" class="img-fluid"/>
                     </div>
                     <div class="col-lg-2 col-md-3 col-6 ps-lg-5 ps-lg-4 footer-list-29 mt-md-0 mt-4">
                         <ul>
@@ -577,22 +633,22 @@ Author URL: http://w3layouts.com
                             <li><a href="https://www.linkedin.com/company/infobhan/about/"><img src="./assets/images/linkedin.png" height="20px" width="20px" alt=""/> LinkedIn</a></li>
                             <li><a href="#privacy"><img style="background-color: aliceblue; border-radius: 5px;" src="./assets/images/iconfinder_7658978_clubhouse_brand_socials_audio_party_icon_512px.png" height="20px" width="20px" alt=""/> Clubhouse</a></li>
                             <li><a href="https://www.facebook.com/infobhan"><img src="./assets/images/facebook.png" height="20px" width="20px" alt=""/> Facebook</a></li>
-                            <li><a href="https://wa.me/97455550286"><img src="./assets/images/whatsapp.webp" height="20px" width="20px" alt=""/> WhatsApp</a></li>
+                            <li><a href="https://wa.me/97444418286"><img src="./assets/images/whatsapp.webp" height="20px" width="20px" alt=""/> WhatsApp</a></li>
                         </ul>
                     </div>
-                    <!-- <div class="col-lg-4 col-md-6 col-sm-8 footer-list-29 mt-lg-0 mt-4 ps-lg-5">
-                        <h6 class="footer-title-29">Subscribe</h6>
-                        <form action="#" class="subscribe d-flex" method="post">
-                            <input type="email" name="email" placeholder="Email Address" required="">
-                            <button class="button-style"><span class="fa fa-paper-plane"
-                                    aria-hidden="true"></span></button>
-                        </form>
-                        <p class="mt-3">Subscribe to our mailing list and get updates to your email inbox.</p>
-                    </div> -->
                 </div>
                 <!-- copyright -->
-                <p class="copy-footer-29 text-center pt-lg-2 mt-5 pb-2">© 2021 Infobhan Systems & Services. All rights reserved. Design
-                    by <a href="https://w3layouts.com/" target="_blank">W3Layouts</a></p>
+                <p class="copy-footer-29 text-center pt-lg-2 mt-5 pb-2">© 2022 Infobhan Systems & Services. All rights reserved.
+                    <a class="text-white" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        We Used
+                      </a>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <p>Design by <a href="https://w3layouts.com/" target="_blank">W3Layouts</a></p>
+                            <div>Icon made from <a href="http://www.onlinewebfonts.com/icon">Icon Fonts</a> is licensed by CC BY 3.0</div>
+                        </div>
+                    </div>
+                    
                 <!-- //copyright -->
             </div>
         </div>
@@ -635,7 +691,7 @@ Author URL: http://w3layouts.com
     <!-- //counter-->
 
     <!-- theme switch js (light and dark)-->
-    <script src="assets/js/theme-change.js"></script>
+    <!-- <script src="assets/js/theme-change.js"></script> -->
     <!-- //theme switch js (light and dark)-->
 
     <!-- MENU-JS -->

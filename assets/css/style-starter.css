@@ -119,14 +119,14 @@ h2,
 
 h3,
 .h3 {
-  font-size: calc(1.3rem + 0.6vw);
+  font-size: calc(1.0rem + 0.6vw);
 }
 
 @media (min-width: 1200px) {
 
   h3,
   .h3 {
-    font-size: 1.75rem;
+    font-size: 1.0rem;
   }
 }
 
@@ -18786,7 +18786,7 @@ div#small-dialog iframe {
 
 /* movetop styling */
 #movetop {
-  position: fixed;
+   position: fixed;
   bottom: 90px;
   right: 15px;
   z-index: 9;
@@ -19347,7 +19347,7 @@ h3.title-style {
 
 /* banner section */
 .w3l-banner {
-  background-size: 400% 400%;
+  background-size: 100% 100%;
   animation: gradient 15s ease infinite;
   min-height: 100vh;
   position: relative;
@@ -19358,7 +19358,7 @@ h3.title-style {
 .w3l-banner:before {
   content: "";
   position: absolute;
-  width: 1300px;
+  width: 100%;
   height: 100%;
   background: var(--banner-layer);
   z-index: -1;
@@ -19392,7 +19392,7 @@ h4.small-text-banner {
 }
 
 .w3l-banner h3 {
-  font-size: 74px;
+  font-size: 69px;
   line-height: 84px;
   font-weight: 700;
 }
@@ -19406,31 +19406,12 @@ p.banner-sub {
   line-height: 30px;
 }
 
-/* .sub-banner-image {
-  border-radius: 67% 33% 28% 72% / 59% 51% 49% 41%;
-  text-align: center;
-  max-width: 450px;
-  max-height: 450px;
-  background: var(--gradient-color-banner);
-  margin-top: 80px;
-}
-
-.sub-banner-image img {
-  position: absolute;
-  top: -162px;
-  right: 0px;
-} */
 
 .banner-style-1 {
   top: 0;
   left: -20px;
 }
 
-/* .banner-style-2 {
-  background: var(--secondary-color);
-  padding: 25px 30px;
-  border-radius: 50%;
-} */
 
 .banner-style-2 h4 {
   color: #fff;
@@ -19477,7 +19458,7 @@ p.banner-sub {
 
 @media (max-width: 1199px) {
   .w3l-banner h3 {
-    font-size: 55px;
+    font-size: 45px;
     line-height: 65px;
   }
 
@@ -19503,7 +19484,7 @@ p.banner-sub {
   }
 
   .sub-banner-image img {
-    top: -130px;
+    top: -30px;
   }
 
   .banner-style-1 {
@@ -19531,7 +19512,7 @@ p.banner-sub {
 
 @media (max-width: 414px) {
   .sub-banner-image {
-    margin-top: 7em;
+    margin-top: 1em;
   }
 
   .banner-style-2 h4 {
@@ -20236,6 +20217,16 @@ p.count-text {
 .w3l-index4 .clients-slider li.anim5 {
   -webkit-animation: cycle5 15s linear infinite;
   animation: cycle5 15s linear infinite;
+}
+
+.w3l-index4 .clients-slider li.anim6 {
+  -webkit-animation: cycle6 15s linear infinite;
+  animation: cycle6 15s linear infinite;
+}
+
+.w3l-index4 .clients-slider li.anim7 {
+  -webkit-animation: cycle7 15s linear infinite;
+  animation: cycle7 15s linear infinite;
 }
 
 .w3l-index4 .clients-slider:hover li {
@@ -21092,4 +21083,48 @@ h4.inner-text-title {
   }
 }
 
-/* //team block */
+/* //team block  Code By Developer*/
+
+.align-p-justify{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+ a.zoom-infinite{
+  position: relative;
+  animation-name: example;
+  animation-duration: 3s;  
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .75 );
+  }
+}
+
+img {
+  pointer-events: none;
+}
