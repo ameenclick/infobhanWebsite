@@ -1,54 +1,67 @@
 <?php
 
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-require 'vendor/autoload.php';
+require './PHPMailer/src/Exception.php';
+require './PHPMailer/src/PHPMailer.php';
+require './PHPMailer/src/SMTP.php';
+
 
 //Create an instance; passing `true` enables exceptions
+ob_start();
 $mail = new PHPMailer(true);
 $email= $_POST['email'];
 $name= $_POST['name'];
 $subject = $_POST['subject'];
+$phone=$_POST['phone'];
 $body= $_POST['body'];
-$url=$_POST['url'];
+//$url=$_POST['url'];
 
 try {
     //Server settings
+    $env = parse_ini_file('.env');
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.example.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'user@example.com';                     //SMTP username
-    $mail->Password   = 'secret';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->isSMTP();  
+    $mail->Mailer = "smtp";                                          //Send using SMTP
+    $mail->Host       = $env["EMAIL_HOST"];                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;     
+    $mail->SMTPSecure = "tls";                              //Enable SMTP authentication
+    $mail->Username   = $env["EMAIL_USERNAME"];                     //SMTP username
+    $mail->Password   = $env["EMAIL_PASSWORD"];                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
+    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom($email, $name);
+    $mail->setFrom("website@infobhan.net");
     $mail->addAddress('info@infobhan.net', 'Infobhan Systems');     //Add a recipient
-    // $mail->addAddress('ellen@example.com');               //Name is optional
     $mail->addReplyTo($email, $name);
     $mail->addCC('abdulsalam@infobhan.net');
     $mail->addBCC('developer@infobhan.net');
 
-    //Attachments
-    $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
-
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = $subject;
-    $mail->Body    = $body."\n Website:".$url;
+    $mail->Body    ="<br/> Name: <b>".$name."</b><br/> Email: <b>".$email."</b><br/>".$body;
     $mail->AltBody = $body;
 
     $mail->send();
-    echo 'Message has been sent';
+    ob_end_clean();
+    // Get the root URL dynamically
+    $filename = basename($_SERVER['PHP_SELF']);
+    $request_uri = str_replace($filename, '', $_SERVER['REQUEST_URI']);
+    $root_url = "http" . (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "s" : "") . "://";
+    $root_url .= $_SERVER['HTTP_HOST'] . $request_uri;
+
+    // Construct the new page URL
+    $new_page_url = $root_url."/success.html";
+
+    header("Location: $new_page_url");
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo "Message could not be sent.";
+    //echo "\n Mailer Error: {$mail->ErrorInfo}";
 }
 
 ?>
