@@ -4,10 +4,12 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+$root_path = dirname($_SERVER['DOCUMENT_ROOT'] . $_SERVER['PHP_SELF']);
+
 //Load Composer's autoloader
-require './PHPMailer/src/Exception.php';
-require './PHPMailer/src/PHPMailer.php';
-require './PHPMailer/src/SMTP.php';
+require $root_path.'/PHPMailer/src/Exception.php';
+require $root_path.'/PHPMailer/src/PHPMailer.php';
+require $root_path.'/PHPMailer/src/SMTP.php';
 
 
 //Create an instance; passing `true` enables exceptions
@@ -18,7 +20,6 @@ $name= $_POST['name'];
 $subject = $_POST['subject'];
 $phone=$_POST['phone'];
 $body= $_POST['body'];
-//$url=$_POST['url'];
 
 try {
     //Server settings
