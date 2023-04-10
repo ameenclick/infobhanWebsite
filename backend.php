@@ -38,7 +38,6 @@ try {
     //Recipients
     $mail->setFrom("website@infobhan.net");
     $mail->addAddress('info@infobhan.net', 'Infobhan Systems');     //Add a recipient
-    $mail->addReplyTo($email, $name);
     $mail->addCC('abdulsalam@infobhan.net');
     $mail->addBCC('developer@infobhan.net');
 
@@ -57,7 +56,7 @@ try {
     $root_url .= $_SERVER['HTTP_HOST'] . $request_uri;
 
     // Construct the new page URL
-    $new_page_url = $root_url."/success.html";
+    $new_page_url = $root_url."success.html";
 
     header("Location: $new_page_url");
 } catch (Exception $e) {
