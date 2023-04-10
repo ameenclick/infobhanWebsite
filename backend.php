@@ -36,10 +36,9 @@ try {
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom("website@infobhan.net");
+    $mail->setFrom('website@infobhan.net');
     $mail->addAddress('info@infobhan.net', 'Infobhan Systems');     //Add a recipient
-    $mail->addCC('abdulsalam@infobhan.net');
-    $mail->addBCC('developer@infobhan.net');
+    //$mail->addBCC('developer@infobhan.net');
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
