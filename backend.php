@@ -23,17 +23,17 @@ $body= $_POST['body'];
 
 try {
     //Server settings
-    //$env = parse_ini_file('.env');
-    $mail->isSMTP();   
-    $mail->SMTPDebug = 1;                      //Enable verbose debug output                                         //Send using SMTP
-    $mail->Host       = "relay-hosting.secureserver.net";                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = false;     
-    $mail->SMTPSecure = "none";                              //Enable SMTP authentication
-    $mail->Port       = 25;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->isSMTP();                                      
+    $mail->SMTPDebug = 1;  
+    $mail->SMTPAuth = false;
+    $mail->SMTPSecure = 'none';
+    $mail->Host = "localhost"; 
+    $mail->Port = 25;
+    $mail->IsHTML(true); 
 
     //Recipients
     $mail->setFrom('website@infobhan.net');
-    $mail->addAddress('info@infobhan.net', 'Infobhan Systems');     //Add a recipient
+    $mail->addAddress('developer@infobhan.net', 'Infobhan Systems');     //Add a recipient
     //$mail->addBCC('developer@infobhan.net');
 
     //Content
