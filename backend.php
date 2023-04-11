@@ -23,16 +23,12 @@ $body= $_POST['body'];
 
 try {
     //Server settings
-    $env = parse_ini_file('.env');
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();  
-    $mail->Mailer = "smtp";                                          //Send using SMTP
-    $mail->Host       = "relay-hosting.secureserver.net";                     //Set the SMTP server to send through
+    //$env = parse_ini_file('.env');
+    $mail->isSMTP();   
+    $mail->SMTPDebug = 1;                      //Enable verbose debug output                                         //Send using SMTP
+    $mail->Host       = "localhost";                     //Set the SMTP server to send through
     $mail->SMTPAuth   = false;     
     $mail->SMTPSecure = "none";                              //Enable SMTP authentication
-    $mail->Username   = "";                     //SMTP username
-    $mail->Password   = "";                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 25;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
