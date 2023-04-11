@@ -24,20 +24,21 @@ $body= $_POST['body'];
 try {
     //Server settings
     $mail->isSMTP();                                      
-    $mail->SMTPDebug = 1;  
+    $mail->SMTPDebug = 0;  
     $mail->SMTPAuth = false;
     $mail->SMTPSecure = 'none';
-    $mail->Host = "localhost"; 
+    $mail->Host = "https://a2plcpnl0443.prod.iad2.secureserver.net"; 
     $mail->Port = 25;
     $mail->IsHTML(true); 
 
+    $mail->Username="";
+    $mail->Password="";
     //Recipients
     $mail->setFrom('website@infobhan.net');
     $mail->addAddress('developer@infobhan.net', 'Infobhan Systems');     //Add a recipient
     //$mail->addBCC('developer@infobhan.net');
 
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
+    //Content                                 //Set email format to HTML
     $mail->Subject = $subject;
     $mail->Body    ="<br/> Name: <b>".$name."</b><br/> Email: <b>".$email."</b><br/>".$body;
     $mail->AltBody = $body;
