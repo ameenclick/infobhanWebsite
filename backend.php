@@ -28,12 +28,12 @@ try {
     $mail->isSMTP();  
     $mail->Mailer = "smtp";                                          //Send using SMTP
     $mail->Host       = "relay-hosting.secureserver.net";                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;     
-    $mail->SMTPSecure = "tls";                              //Enable SMTP authentication
+    $mail->SMTPAuth   = false;     
+    $mail->SMTPSecure = "none";                              //Enable SMTP authentication
     $mail->Username   = "";                     //SMTP username
     $mail->Password   = "";                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 24;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->Port       = 25;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
     $mail->setFrom('website@infobhan.net');
