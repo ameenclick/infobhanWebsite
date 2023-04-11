@@ -26,7 +26,7 @@ try {
     //$env = parse_ini_file('.env');
     $mail->isSMTP();   
     $mail->SMTPDebug = 1;                      //Enable verbose debug output                                         //Send using SMTP
-    $mail->Host       = "localhost";                     //Set the SMTP server to send through
+    $mail->Host       = "relay-hosting.secureserver.net";                     //Set the SMTP server to send through
     $mail->SMTPAuth   = false;     
     $mail->SMTPSecure = "none";                              //Enable SMTP authentication
     $mail->Port       = 25;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
