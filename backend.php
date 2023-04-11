@@ -27,13 +27,13 @@ try {
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();  
     $mail->Mailer = "smtp";                                          //Send using SMTP
-    $mail->Host       = $env["EMAIL_HOST"];                     //Set the SMTP server to send through
+    $mail->Host       = "relay-hosting.secureserver.net";                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;     
     $mail->SMTPSecure = "tls";                              //Enable SMTP authentication
-    $mail->Username   = $env["EMAIL_USERNAME"];                     //SMTP username
-    $mail->Password   = $env["EMAIL_PASSWORD"];                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
-    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->Username   = "";                     //SMTP username
+    $mail->Password   = "";                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 24;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
     $mail->setFrom('website@infobhan.net');
