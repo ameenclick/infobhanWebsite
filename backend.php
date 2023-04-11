@@ -57,7 +57,7 @@ try {
 
     header("Location: $new_page_url");
 } catch (Exception $e) {
-    echo "Message could not be sent.";
+    echo "Message could not be sent.".$e;
     //echo "\n Mailer Error: {$mail->ErrorInfo}";
 }
 
