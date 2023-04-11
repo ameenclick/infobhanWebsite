@@ -22,6 +22,7 @@ $phone=$_POST['phone'];
 $body= $_POST['body'];
 
 try {
+    $env = parse_ini_file('.env');
     //Server settings
     $mail->isSMTP();                                      
     $mail->SMTPDebug = 0;  
@@ -31,8 +32,8 @@ try {
     $mail->Port = 25;
     $mail->IsHTML(true); 
 
-    $mail->Username="";
-    $mail->Password="";
+    $mail->Username="website@infobhan.net";
+    $mail->Password=$env["EMAIL_PASSWORD"];
     //Recipients
     $mail->setFrom('website@infobhan.net');
     $mail->addAddress('developer@infobhan.net', 'Infobhan Systems');     //Add a recipient
