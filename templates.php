@@ -74,7 +74,7 @@
 
         if($row)
         {
-            echo '<iframe src="'.$row["template"].'" frameborder="0" scrolling="yes"></iframe>';
+            echo '<iframe id="previewFrame" src="'.$row["template"].'" frameborder="0" scrolling="yes"></iframe>';
         }
         else {
             echo '<iframe src="notfound.html" frameborder="0" scrolling="yes"></iframe>';
@@ -87,5 +87,21 @@
     }
     
 ?>
+ <div id="container" class="container mt-2">
+    <center>
+        <!-- Loader -->
+        <div id="loader" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div class="spinner-border text-primary" role="status">
+            </div>
+        </div>
+    </center>
+</div>
+<script>
+    $(document).ready(function() {
+        $("#previewFrame").on("load", function() {
+            $("#loader").hide();
+        });
+    })
+</script>
 </body>
 </html>
