@@ -29,9 +29,10 @@
                 <div class="mb-3">
                     <label for="basic-url my-2" class="form-label">Paste Template URL Here</label>
                     <div class="input-group">
-                        <input class="form-control form-control-lg" type="url" name="website_url" id="website_url" required>
+                        <input class="form-control form-control-lg" type="url" name="website_url" id="website_url" maxlength="500" pattern=".{0,500}" required>
                         <input class="btn btn-primary" type="submit" value="Preview">
                     </div>
+                    <div id="length-warning" style="display: none; color: red;">Maximum 500 characters allowed.</div>
                   </div>
                 </form>
             </div>
@@ -43,6 +44,14 @@
     <script>
         $(document).ready(function() {
 
+        $("#website_url").on("input", function() {
+            if ($(this).val().length >= 500) {
+                $("#length-warning").show();
+            } else {
+                $("#length-warning").hide();
+            }
+        });
+        
             //Previewing the template
             $("#urlForm").submit(function(event) {
                 event.preventDefault();
