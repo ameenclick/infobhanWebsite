@@ -62,7 +62,10 @@
         } 
         
         $sql = "SELECT template FROM templates WHERE hash=?";
-        $prepared = $conn->prepare($sql) or die("Something went wrong.");
+        $prepared = $conn->prepare($sql);
+        if (!$prepared) {
+            die("Something went wrong: " . $conn->error);
+        }
         $prepared->bind_param("i", $_GET['id']);
 
         $prepared->execute();
