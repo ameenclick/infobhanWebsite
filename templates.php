@@ -46,6 +46,10 @@
     }
     
     $env = loadEnv();
+    if(!$env)
+    {
+        echo "Env file missing.";
+    }
     if(isset($_GET['id']))
     {
         $server = $env['server'];
@@ -66,18 +70,20 @@
         if (!$prepared) {
             die("Something went wrong: " . $conn->error);
         }
-        $prepared->bind_param("i", $_GET['id']);
+        $prepared->bind_param("s", $_GET['id']);
 
         $prepared->execute();
-        $result = $prepared->get_result();
-        $row = $result->fetch_assoc();
+
+        $template = null;
+        $prepared->bind_result($template);
+        $result = $prepared->fetch();
 
         $prepared->close();
         $conn->close();
 
-        if($row)
+        if($result && $template)
         {
-            echo '<iframe id="previewFrame" src="'.$row["template"].'" frameborder="0" scrolling="yes"></iframe>';
+            echo '<iframe id="previewFrame" src="'.$template.'" frameborder="0" scrolling="yes"></iframe>';
         }
         else {
             echo '<iframe src="notfound.html" frameborder="0" scrolling="yes"></iframe>';
