@@ -74,7 +74,27 @@ Author URL: http://w3layouts.com
     </script>
 </head>
 
-<body class="w3-animate-opacity">
+<body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <!-- Your Brand Logo -->
+            <img class="heart" src="./assets/images/logo.jpg" alt="Your Logo">
+            <h3>Infobhan Systems & Services Loading...</h3>
+        </div>
+    </div>
+
+	<script>
+		// Wait for the page to fully load
+		window.addEventListener("load", function () {
+			// Get the loading screen element
+			const loader = document.querySelector(".loader");
+
+			// Hide the loading screen
+			loader.style.display = "none";
+		});
+	</script>
+    <div  class="w3-animate-opacity">
     <!-- header -->
     <header id="site-header" class="fixed-top">
         <div class="container">
@@ -737,6 +757,7 @@ Author URL: http://w3layouts.com
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- //bootstrap -->
     <!-- //Js scripts -->
+</div>
 </body>
 
 </html>
