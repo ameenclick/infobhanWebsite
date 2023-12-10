@@ -20,6 +20,7 @@ Author URL: http://w3layouts.com
     <!--W3 Animations-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-3YPGJ4RLGH"></script> -->
     <script>
@@ -91,15 +92,15 @@ Author URL: http://w3layouts.com
             </div>
             <div class="row contact-block">
                 <div class="col-md-7 contact-right">
-                    <form action="backend.php" method="post" class="signin-form">
+                    <form id="contactForm" method="post" class="signin-form">
                         <div class="input-grids">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <input type="text" name="name" id="w3lName" placeholder="Your Name"
+                                    <input type="text" name="name" id="contactusername" placeholder="Your Name"
                                         class="contact-input" required="" />
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="email" name="email" id="w3lSender" placeholder="Your Email"
+                                    <input type="email" name="email" id="contactemail" placeholder="Your Email"
                                         class="contact-input" required="" />
                                 </div>
                             </div>
@@ -109,12 +110,14 @@ Author URL: http://w3layouts.com
                                 class="contact-input"  required=""/>
                         </div>
                         <div class="form-input">
-                            <textarea name="body" id="w3lMessage" placeholder="Type your message here"
+                            <textarea name="message" id="contactcomment" placeholder="Type your message here"
                                 required=""></textarea>
                         </div>
                         <div class="text-start">
-                            <button id="formSubmit" class="btn btn-style btn-style-3">Send Message</button>
+                            <button id="submit" type="submit" class="btn btn-style btn-style-3">Send Message</button>
                         </div>
+                        <!-- Response alert -->
+						<div id="responseAlert" class="mt-3"></div>
                     </form>
                 </div>
                 <div class="col-md-5 ps-lg-5 mt-md-0 mt-5">
@@ -153,11 +156,50 @@ Author URL: http://w3layouts.com
             </div>
         </div>
     </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+		$(document).ready(function(){
+			// jQuery for handling the contact form submission
+			$("#contactForm").submit(function(e){
+				e.preventDefault(); // Prevent the default form submission
+				// Show the loader
+                //$("#submitting").show();
+				// Disable submit button
+				$("#submit").prop('disabled', true);
+				// Perform AJAX request to send form data to sendEmail.php
+				$.ajax({
+					type: "POST",
+					url: "sendEmail.php",
+					data: $(this).serialize(), // Serialize the form data
+					success: function(response){
+						// Handle the response here (e.g., show a success message)
+						var status = JSON.parse(response).status
+						if (status === "success") {
+							//$("#submitting").hide();
+							// Disable submit button
+							$("#submit").prop('disabled', false);
+							$("#responseAlert").html('<div class="alert alert-success">Thank you for visting our website, we will reach out soon.</div>');
+						} else {
+							$("#responseAlert").html('<div class="alert alert-danger">Failed to communicate. Please try again later.</div>');
+						}
+					},
+					error: function(){
+						// Handle errors here
+						$("#responseAlert").html('<div class="alert alert-danger">An error occurred. Please try again later.</div>');
+					}
+				});
+			});
+		});
+	</script>
     <!-- map -->
     <div class="map row" align="center">
             <div  class="mapoute"><div class="gmap_canvas"><iframe class="border rounded border-dark col-lg-4" width="75%" height="50%" src="https://maps.google.com/maps?q=INFOBHAN%20SYSTEMS%20AND%20SERVICES,%20Doha&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"></iframe><a href="https://123movies-a.com"></a><br><style>.mapouter{position:relative;text-align:center;height:500px;width:100%;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div></div>
     </div>
     <!-- //contact block -->
+
+    
+
 
     <!-- footer block -->
     <footer class="w3l-footer-29-main">
@@ -230,13 +272,8 @@ Author URL: http://w3layouts.com
         }
     </script>
     <!-- //move top -->
-
-    <!-- common jquery plugin -->
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <!-- //common jquery plugin -->
-
     <!-- theme switch js (light and dark)-->
-    <script src="assets/js/theme-change.js"></script>
+    <!-- <script src="assets/js/theme-change.js"></script> -->
     <!-- //theme switch js (light and dark)-->
 
     <!-- MENU-JS -->
