@@ -162,33 +162,35 @@ Author URL: http://w3layouts.com
 		$(document).ready(function(){
 			// jQuery for handling the contact form submission
 			$("#contactForm").submit(function(e){
-				e.preventDefault(); // Prevent the default form submission
+                $("#responseAlert").html('<div class="alert alert-danger">This service is temporarly unavailable, please reachout through contact information.</div>');
+				return
+                e.preventDefault(); // Prevent the default form submission
 				// Show the loader
-                //$("#submitting").show();
-				// Disable submit button
-				$("#submit").prop('disabled', true);
-				// Perform AJAX request to send form data to sendEmail.php
-				$.ajax({
-					type: "POST",
-					url: "sendEmail.php",
-					data: $(this).serialize(), // Serialize the form data
-					success: function(response){
-						// Handle the response here (e.g., show a success message)
-						var status = JSON.parse(response).status
-						if (status === "success") {
-							//$("#submitting").hide();
-							// Disable submit button
-							$("#submit").prop('disabled', false);
-							$("#responseAlert").html('<div class="alert alert-success">Thank you for visting our website, we will reach out soon.</div>');
-						} else {
-							$("#responseAlert").html('<div class="alert alert-danger">Failed to communicate. Please try again later.</div>');
-						}
-					},
-					error: function(){
-						// Handle errors here
-						$("#responseAlert").html('<div class="alert alert-danger">An error occurred. Please try again later.</div>');
-					}
-				});
+                // //$("#submitting").show();
+				// // Disable submit button
+				// $("#submit").prop('disabled', true);
+				// // Perform AJAX request to send form data to sendEmail.php
+				// $.ajax({
+				// 	type: "POST",
+				// 	url: "sendEmail.php",
+				// 	data: $(this).serialize(), // Serialize the form data
+				// 	success: function(response){
+				// 		// Handle the response here (e.g., show a success message)
+				// 		var status = JSON.parse(response).status
+				// 		if (status === "success") {
+				// 			//$("#submitting").hide();
+				// 			// Disable submit button
+				// 			$("#submit").prop('disabled', false);
+				// 			$("#responseAlert").html('<div class="alert alert-success">Thank you for visting our website, we will reach out soon.</div>');
+				// 		} else {
+				// 			$("#responseAlert").html('<div class="alert alert-danger">Failed to communicate. Please try again later.</div>');
+				// 		}
+				// 	},
+				// 	error: function(){
+				// 		// Handle errors here
+				// 		$("#responseAlert").html('<div class="alert alert-danger">An error occurred. Please try again later.</div>');
+				// 	}
+				// });
 			});
 		});
 	</script>
