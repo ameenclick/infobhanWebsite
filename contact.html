@@ -24,12 +24,14 @@ Author URL: http://w3layouts.com
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-3YPGJ4RLGH"></script> -->
     <script>
-    // window.dataLayer = window.dataLayer || [];
-    // function gtag(){dataLayer.push(arguments);}
-    // gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    // gtag('config', 'G-3YPGJ4RLGH');
-    // </script>
+        gtag('config', 'G-3YPGJ4RLGH');
+    </script>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script>
         function pageNotFound(){
@@ -113,8 +115,12 @@ Author URL: http://w3layouts.com
                             <textarea name="message" id="contactcomment" placeholder="Type your message here"
                                 required=""></textarea>
                         </div>
-                        <div class="text-start">
-                            <button id="submit" type="submit" class="btn btn-style btn-style-3">Send Message</button>
+                        <div 
+                            class="text-start">
+                            <button 
+                                id="submit" 
+                                type="submit" 
+                                class="btn btn-style btn-style-3">Send Message</button>
                         </div>
                         <!-- Response alert -->
 						<div id="responseAlert" class="mt-3"></div>
@@ -162,36 +168,41 @@ Author URL: http://w3layouts.com
 		$(document).ready(function(){
 			// jQuery for handling the contact form submission
 			$("#contactForm").submit(function(e){
-                $("#responseAlert").html('<div class="alert alert-danger">This service is temporarly unavailable, please reachout through contact information.</div>');
+                //$("#responseAlert").html('<div class="alert alert-danger">This service is temporarly unavailable, please reachout through contact information.</div>');
                 e.preventDefault(); // Prevent the default form submission
-                return
-				// Show the loader
-                // //$("#submitting").show();
-				// // Disable submit button
-				// $("#submit").prop('disabled', true);
-				// // Perform AJAX request to send form data to sendEmail.php
-				// $.ajax({
-				// 	type: "POST",
-				// 	url: "sendEmail.php",
-				// 	data: $(this).serialize(), // Serialize the form data
-				// 	success: function(response){
-				// 		// Handle the response here (e.g., show a success message)
-				// 		var status = JSON.parse(response).status
-				// 		if (status === "success") {
-				// 			//$("#submitting").hide();
-				// 			// Disable submit button
-				// 			$("#submit").prop('disabled', false);
-				// 			$("#responseAlert").html('<div class="alert alert-success">Thank you for visting our website, we will reach out soon.</div>');
-				// 		} else {
-				// 			$("#responseAlert").html('<div class="alert alert-danger">Failed to communicate. Please try again later.</div>');
-				// 		}
-				// 	},
-				// 	error: function(){
-				// 		// Handle errors here
-				// 		$("#responseAlert").html('<div class="alert alert-danger">An error occurred. Please try again later.</div>');
-				// 	}
-				// });
-			});
+                
+                // Disable submit button
+                $("#submit").prop('disabled', true);
+                
+                // Store a reference to the form
+                var $form = $(this);
+
+                grecaptcha.execute("6LdsHzspAAAAAJJSpGF1bT4534czydkWPvp39eHs", { action: "submit_form" }).then(function(token) {
+                    document.getElementById("g-recaptcha-response").value = token;
+                    // Perform AJAX request to send form data to sendEmail.php
+                    $.ajax({
+                        type: "POST",
+                        url: "sendEmail.php",
+                        data: $form.serialize(), // Serialize the form data
+                        success: function(response){
+                            // Handle the response here (e.g., show a success message)
+                            var status = JSON.parse(response).status
+                            if (status === "success") {
+                                //$("#submitting").hide();
+                                // Disable submit button
+                                $("#submit").prop('disabled', false);
+                                $("#responseAlert").html('<div class="alert alert-success">Thank you for visting our website, we will reach out soon.</div>');
+                            } else {
+                                $("#responseAlert").html('<div class="alert alert-danger">Failed to communicate. Please try again later.</div>');
+                            }
+                        },
+                        error: function(){
+                            // Handle errors here
+                            $("#responseAlert").html('<div class="alert alert-danger">An error occurred. Please try again later.</div>');
+                        }
+                    });
+                });
+            });
 		});
 	</script>
     <!-- map -->
