@@ -79,20 +79,45 @@ Author URL: http://w3layouts.com
     <div id="loader" class="loader">
         <div class="loader-content">
             <!-- Your Brand Logo -->
-            <img class="heart" src="./assets/images/logo.jpg" alt="Your Logo">
+            <img src="./assets/images/Company.png" alt="Your Logo">
+            <!-- Bootstrap Progress Bar -->
+			<div class="progress mt-2" style="width: 100%;">
+				<div id="progress-bar" class="progress-bar progress-bar-striped bg-dark progress-bar-animated" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Loading...</div>
+			</div>
         </div>
     </div>
 
 	<script>
 		// Wait for the page to fully load
-		window.addEventListener("load", function () {
-			// Get the loading screen element
-			const loader = document.querySelector(".loader");
+         // Simulate loading progress
+		function simulateLoadingProgress() {
+			
+			const progressBar = document.getElementById('progress-bar');
+			let width = 0;
 
-			// Hide the loading screen
-			loader.style.display = "none";
+			const interval = setInterval(function () {
+					if (width >= 100) {
+						clearInterval(interval);
+						// Hide the loader after loading is complete
+						document.getElementById('loader').style.display = 'none';
+					} else {
+						width++;
+						progressBar.style.width = width + '%';
+						progressBar.setAttribute('aria-valuenow', width);
+					}
+				}, 20); // Update progress every 20ms, adjust timing as needed
+		}
+
+		// Start simulation when the page starts loading
+		simulateLoadingProgress();
+		// window.addEventListener("load", function () {
+		// 	// Get the loading screen element
+		// 	const loader = document.querySelector(".loader");
+
+		// 	// Hide the loading screen
+		// 	loader.style.display = "none";
             
-		});
+		// });
 	</script>
     <div id="body" class="w3-animate-opacity">
     <!-- header -->
