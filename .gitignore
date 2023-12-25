@@ -1,3 +1,5 @@
 .env
 
 sendEmail.php
+
+captchaVerification.php
