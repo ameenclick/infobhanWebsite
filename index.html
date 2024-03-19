@@ -20,23 +20,24 @@ Author URL: http://w3layouts.com
     oriented with full life cycle at competitive cost of ownership (COO) and return on investment (ROI)"/>
 
     <meta name="keywords" content="INFOBHAN, Infobhan, Infobhan Systems, Infobhan Systems & Services, IT Solutions in Qatar, IT Consultation in Qatar, Deliver Values Through Services,Printer Repair in Qatar,
-    Network Cabling in Qatar,
-    PC Repair in Qatar,
-    IT Support in Qatar,
-    IT Service Desk in Qatar,
-    IT Outsource in Qatar,
-    Web Hosting in Qatar,
-    Cloud Hosting,
-    Web Development in Qatar,
-    Email hosting in Qatar,
-    IT Infrastructure in Qatar,
-    ERP, ERP in Qatar,
-    HRM, HRM in Qatar,
-    Management Information System,
-    MIS in Qatar,
-    Cloud Support Services in Qatar,
-    Cloud Solutions in Qatar,
-    IT Maintenance in Qatar"/>
+        Network Cabling in Qatar,
+        PC Repair in Qatar,
+        IT Support in Qatar,
+        IT Service Desk in Qatar,
+        IT Outsource in Qatar,
+        Web Hosting in Qatar,
+        Cloud Hosting,
+        Web Development in Qatar,
+        Email hosting in Qatar,
+        IT Infrastructure in Qatar,
+        ERP, ERP in Qatar,
+        HRM, HRM in Qatar,
+        Management Information System,
+        MIS in Qatar,
+        Cloud Support Services in Qatar,
+        Cloud Solutions in Qatar,
+        Azure, AWS, GCP,
+        IT Maintenance in Qatar"/>
     
     <!-- OG Tags-->
     <meta property="og:title" content="Infobhan Systems & Services"/>
@@ -72,6 +73,30 @@ Author URL: http://w3layouts.com
             return alert("Page under construction...")
         }
     </script>
+
+    <!--GCP Vertex AI Integration Code-->
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+        <df-messenger
+        location="us-central1"
+        project-id="aichatbotforinfobhan"
+        agent-id="5a6d85a9-1dfd-45d1-ada1-6d10cf877d5c"
+        language-code="en"
+        max-query-length="-1">
+        <df-messenger-chat-bubble
+            chat-title="Aalim"
+            >
+        </df-messenger-chat-bubble>
+        </df-messenger>
+        <style>
+        df-messenger {
+            z-index: 999;
+            position: fixed;
+            bottom: 5px;
+            right: 16px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -159,9 +184,9 @@ Author URL: http://w3layouts.com
     </header>
     <!-- //header -->
 
-    <div class="row fixed-bottom mb-5">
+    <div class="row fixed-bottom mb-2">
         <div class="col">
-            <a class="float-end btn btn-lg btn-white text-white mt-2 w3-animate-zoom zoom-infinite d-none d-sm-block"style="background-color:	#9d7213" target="_blank" href="assets/pdf/Company Profile New_opt-A.pdf">
+            <a class="float-start btn btn-lg btn-white text-white mt-2 w3-animate-zoom zoom-infinite d-none d-sm-block"style="background-color:	#9d7213" target="_blank" href="assets/pdf/Company Profile New_opt-A.pdf">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-check" viewBox="0 0 16 16">
                     <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
                     <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
