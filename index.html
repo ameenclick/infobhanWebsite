@@ -9,40 +9,19 @@ Author URL: http://w3layouts.com
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Infobhan Systems & Services
-    </title>
+    <title>Infobhan Systems & Services - Leading IT Solutions & Services in Qatar | Trusted Since 1996</title>
     <link rel = "icon" href = 
 "./assets/images/logo.jpg" 
         type = "image/x-icon">
 
-         <!--SEO-->
-    <meta name="description" content="Infobhan provide technology products, services and solutions that are qualitatively process
-    oriented with full life cycle at competitive cost of ownership (COO) and return on investment (ROI)"/>
+    <!--SEO-->
+    <meta name="description" content="With 3 decades of expertise, Infobhan leads Qatar in IT Services. Specializing in IT Infrastructure, Networking, Hardware Trade & Repair, and Web Development, we offer quality, full life-cycle solutions with competitive pricing, maximizing COO and ROI."/>
 
-    <meta name="keywords" content="INFOBHAN, Infobhan, Infobhan Systems, Infobhan Systems & Services, IT Solutions in Qatar, IT Consultation in Qatar, Deliver Values Through Services,Printer Repair in Qatar,
-    Network Cabling in Qatar,
-    PC Repair in Qatar,
-    IT Support in Qatar,
-    IT Service Desk in Qatar,
-    IT Outsource in Qatar,
-    Web Hosting in Qatar,
-    Cloud Hosting,
-    Web Development in Qatar,
-    Email hosting in Qatar,
-    IT Infrastructure in Qatar,
-    ERP, ERP in Qatar,
-    HRM, HRM in Qatar,
-    Management Information System,
-    MIS in Qatar,
-    Cloud Support Services in Qatar,
-    Cloud Solutions in Qatar,
-    IT Maintenance in Qatar"/>
+    <meta name="keywords" content="Infobhan Systems, IT Solutions Qatar, IT Consultation Qatar, Printer Repair Qatar, Network Cabling Qatar, PC Repair Qatar, IT Support Qatar, IT Service Desk Qatar, IT Outsourcing Qatar, Web Hosting Qatar, Cloud Hosting Qatar, Web Development Qatar, Email Hosting Qatar, IT Infrastructure Qatar, ERP Solutions Qatar, HRM Solutions Qatar, Management Information System Qatar, MIS Qatar, Cloud Support Qatar, Cloud Solutions Qatar, Azure Qatar, AWS Qatar, GCP Qatar, IT Maintenance Qatar"/>
     
     <!-- OG Tags-->
-    <meta property="og:title" content="Infobhan Systems & Services"/>
-    <meta property="og:description" content="Provide technology products, services, knowhow and solutions that are qualitatively process
-    oriented with full life cycle at competitive cost of
-    ownership (COO) and return on investment (ROI)"/>
+    <meta property="og:title" content="Leading IT Services in Qatar - Infobhan Systems & Services, Trusted Since 1996"/>
+    <meta property="og:description" content="With 3 decades of pioneering IT solutions, Infobhan Systems & Services delivers high-quality, full life-cycle technology services in Qatar. Specializing in IT Infrastructure, Networking, Hardware, and Web Solutions, we offer competitive COO and ROI-focused solutions."/>
     <meta property="og:image" content="assets\images\banner.png"/>
 
     <!-- Google fonts -->
@@ -72,6 +51,31 @@ Author URL: http://w3layouts.com
             return alert("Page under construction...")
         }
     </script>
+
+    <!--GCP Vertex AI Integration Code-->
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+        <df-messenger
+        location="us-central1"
+        project-id="aichatbotforinfobhan"
+        agent-id="5a6d85a9-1dfd-45d1-ada1-6d10cf877d5c"
+        language-code="en"
+        max-query-length="-1">
+        <df-messenger-chat-bubble
+            chat-title="Alim AI"
+            >
+        </df-messenger-chat-bubble>
+        </df-messenger>
+        <style>
+        df-messenger {
+            z-index: 1999;
+            position: fixed;
+            bottom: 5px;
+            right: 16px;
+            color: black;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -79,20 +83,45 @@ Author URL: http://w3layouts.com
     <div id="loader" class="loader">
         <div class="loader-content">
             <!-- Your Brand Logo -->
-            <img class="heart" src="./assets/images/logo.jpg" alt="Your Logo">
+            <img src="./assets/images/Company.png" alt="Infobhan">
+            <!-- Bootstrap Progress Bar -->
+			<div class="progress mt-2" style="width: 100%;">
+				<div id="progress-bar" class="progress-bar progress-bar-striped bg-dark progress-bar-animated" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Loading...</div>
+			</div>
         </div>
     </div>
 
 	<script>
 		// Wait for the page to fully load
-		window.addEventListener("load", function () {
-			// Get the loading screen element
-			const loader = document.querySelector(".loader");
+         // Simulate loading progress
+		function simulateLoadingProgress() {
+			
+			const progressBar = document.getElementById('progress-bar');
+			let width = 0;
 
-			// Hide the loading screen
-			loader.style.display = "none";
+			const interval = setInterval(function () {
+					if (width >= 100) {
+						clearInterval(interval);
+						// Hide the loader after loading is complete
+						document.getElementById('loader').style.display = 'none';
+					} else {
+						width++;
+						progressBar.style.width = width + '%';
+						progressBar.setAttribute('aria-valuenow', width);
+					}
+				}, 20); // Update progress every 20ms, adjust timing as needed
+		}
+
+		// Start simulation when the page starts loading
+		simulateLoadingProgress();
+		// window.addEventListener("load", function () {
+		// 	// Get the loading screen element
+		// 	const loader = document.querySelector(".loader");
+
+		// 	// Hide the loading screen
+		// 	loader.style.display = "none";
             
-		});
+		// });
 	</script>
     <div id="body" class="w3-animate-opacity">
     <!-- header -->
@@ -100,7 +129,7 @@ Author URL: http://w3layouts.com
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light sticky-top">
                 <a class="navbar-brand" href="index.html">
-                    <img src="./assets/images/Company.png" height="65px" width="200px" alt="INFOBHAN"/>  
+                    <img src="./assets/images/Company.png" height="65px" width="200px" alt="Infobhan"/>  
                 </a>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
@@ -122,6 +151,9 @@ Author URL: http://w3layouts.com
                             <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://forms.gle/Ev6aXRwB9hCiXbQb7">Career</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                     </ul>
@@ -134,9 +166,9 @@ Author URL: http://w3layouts.com
     </header>
     <!-- //header -->
 
-    <div class="row fixed-bottom mb-5">
-        <div class="col">
-            <a class="float-end btn btn-lg btn-white text-white mt-2 w3-animate-zoom zoom-infinite d-none d-sm-block"style="background-color:	#9d7213" target="_blank" href="assets/pdf/Company Profile New_opt-A.pdf">
+    <div class="fixed-bottom mb-2 me-5">
+        <div class="col-lg-4">
+            <a class="float-start btn btn-lg btn-white text-white mt-2 w3-animate-zoom zoom-infinite d-none d-sm-block"style="background-color:	#9d7213" target="_blank" href="assets/pdf/Company Profile New_opt-A.pdf">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-check" viewBox="0 0 16 16">
                     <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
                     <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
@@ -151,24 +183,24 @@ Author URL: http://w3layouts.com
             <div class="container py-4">
                 <div class="row align-items-center pt-sm-5 pt-4">
                     <div class="col-md-6">
-                        <h1 class="mb-lg-2 mb-3" style="font-weight: bold;">Since 1996</h1>
-                        <h3 class="mb-lg-4 mb-3"  style="font-weight: lighter;">
+                        <h1 class="mb-xl-2 mb-3" style="font-weight: bold;">Since 1996</h1>
+                        <h3 class="mb-xl-4 mb-3"  style="font-weight: lighter;">
                             <div class="d-lg-block">We Deliver Values Through Services</div>
                         </h3>
-                        <p class="banner-sub">Comprehensive IT Support services at Qatar</p>
+                        <p class="banner-sub">Comprehensive IT solutions & support services across Qatar</p>
                         <div class="d-flex align-items-center buttons-banner">
                             <a href="https://wa.me/97470691949" class="btn btn-style mt-lg-5 mt-4" style="background-color:	#2ab200;"><img src="./assets/images/whatsapp.webp" height="20px" width="20px" alt=""/>Chat</a>
                             <a href="https://infobhan.shop" target="_blank" class="btn btn-style mt-lg-5 mt-4 mx-2"><i class="fas fa-shopping-cart"></i> Shop</a>
                         </div>
                     </div>
-                    <div class="col-md-6 text-end">
-                        <div class="sub-banner-image">
-                            <img src="assets/images/banner.png" class="img-fluid" alt=" ">
+                    <div class="col-md-6">
+                        <div class="sub-banner-image text-center">
+                            <img src="assets/images/banner.png"  class="img-fluid" alt="Background banner">
                         </div>
                         <div class="" style="opacity: 0.87;">
-                            <img style="border-radius: 20px;" src="./assets/images/icv.jpg" class="img-fluid w3-animate-zoom" height="35%" width="35%"/>
-                            <img src="./assets/images/25Years.png" class="img-fluid w3-animate-zoom" height="25%" width="25%"/>
-                            <img src="./assets/images/iso.png" class="img-fluid w3-animate-zoom" height="35%" width="35%"/>
+                            <img alt="ICV Certified" style="border-radius: 20px;" src="./assets/images/icv.jpg" class="img-fluid w3-animate-zoom" height="35%" width="35%"/>
+                            <img alt="ISO Certified" src="./assets/images/iso.png" class="img-fluid w3-animate-zoom" height="35%" width="35%"/>
+                            <img alt="28+ Years of service" src="./assets/images/25Years.png" class="img-fluid w3-animate-zoom" height="25%" width="25%"/>
                         </div>
                     </div>
                 </div>
@@ -214,7 +246,7 @@ Author URL: http://w3layouts.com
         <div class="container py-md-5 py-4">
             <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
                 <p class="text-uppercase">Our Services</p>
-                <h3 class="title-style">Know us professionally.</h3>
+                <h3 class="title-style">Specialists in.</h3>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6">
@@ -227,7 +259,7 @@ Author URL: http://w3layouts.com
                         </div>
                         <div class="content-main-top">
                             <h4><a href="services.html" >Infrastructure Solutions</a></h4>
-                            <p>We provide the quality infrastructure development and Maintain anywhere in Qatar.</p>
+                            <p>We provide the quality IT infrastructure development and maintain anywhere in Qatar.</p>
                             <div class="top-content-border d-flex align-items-center justify-content-between mt-4 pt-4">
     
                                 <a class="btn btn-style-primary" data-bs-toggle="collapse" href="#collapseInfra" role="button" aria-expanded="false" aria-controls="collapseInfra">Services<i
@@ -265,7 +297,7 @@ Author URL: http://w3layouts.com
                         <div class="grids5-info position-relative">
                             <img src="assets/images/outsourcing.jpg" alt="" class="img-fluid" />
                             <div class="meta-list">
-                                <a href="services.html" class="sec-2">IT Outsource</a>
+                                <a href="services.html" class="sec-2">Outsource</a>
                             </div>
                         </div>
                         <div class="content-main-top">
@@ -311,12 +343,12 @@ Author URL: http://w3layouts.com
                         <div class="grids5-info position-relative">
                             <img src="assets/images/c3.jpg" alt="" class="img-fluid" />
                             <div class="meta-list">
-                                <a href="" class="sec-3">Web & Cloud</a>
+                                <a href="" class="sec-3">Web</a>
                             </div>
                         </div>
                         <div class="content-main-top">
                             <h4><a href="services.html">Web & Cloud Solutions</a></h4>
-                            <p>Consultation, support, and maintenance for corporate email, web, and cloud services.</p>
+                            <p>Development, support, and maintenance for corporate email, web, and cloud services.</p>
                             <div class="top-content-border d-flex align-items-center justify-content-between mt-4 pt-4">
                                 <!-- <h6>$30.00</h6> -->
                                 <a class="btn btn-style-primary" data-bs-toggle="collapse" href="#collapseWeb" role="button" aria-expanded="false" aria-controls="collapseWeb">Services<i
@@ -326,25 +358,31 @@ Author URL: http://w3layouts.com
                                 <div class="card card-body mt-2">
                                     <ol>
                                         <li>
-                                            Email & Web Hosting
-                                        </li>
-                                        <li>
-                                            Domain Services
-                                        </li>
-                                        <li>
-                                            Email Solutions
-                                        </li>
-                                        <li>
                                             Web Designing & Development
                                         </li>
                                         <li>
-                                            Content Management
+                                            Email & Web Hosting
                                         </li>
                                         <li>
-                                            E-Commerce
+                                            Domain Name Services (DNS)
+                                        </li>
+                                        <li>
+                                            Email Solutions - MS 365
+                                        </li>
+                                        <li>
+                                            Content Management - Static & WordPress CMS
+                                        </li>
+                                        <li>
+                                            E-Commerce - Shopify
                                         </li>
                                         <li>
                                             Intranet Portals
+                                        </li>
+                                        <li>
+                                            Cloud Services - AWS, Azure & GCP
+                                        </li>
+                                        <li>
+                                            AI ChatBot Integration - GCP Vertex AI
                                         </li>
                                     </ol>
                                 </div>
@@ -370,7 +408,7 @@ Author URL: http://w3layouts.com
             <div class="row justify-content-center" >
                 <div class="col-md-6 col-lg-5 d-flex align-items-stretch mt-md-0 mt-4">
                     <div class="icon-box icon-box-clr-1"style="border-radius: 20px;background: linear-gradient(#e03e18,#8a5d26, #1f1a17)";>
-                        <div class="icon"><i class="fas fa-user-friends" style="color: rgb(61, 226, 61);"></i></div>
+                        <div class="icon"><i class="fas fa-user-friends"  style="color: white;"></i></div>
                         <h4 class="title"><a href="#about" style="color: white;">Mission</a></h4>
                         <p style="color: white;">“ Provide technology products, services and solutions that are qualitatively process 
                             oriented with full life cycle at competitive cost of 
@@ -379,7 +417,7 @@ Author URL: http://w3layouts.com
                 </div>
                 <div class="col-md-6 col-lg-5 d-flex align-items-stretch mt-md-0 mt-4">
                     <div class="icon-box icon-box-clr-2"style="border-radius: 20px;background: linear-gradient(#e03e18,#8a5d26, #1f1a17)";>
-                        <div class="icon"><i class="fas fa-book-reader"></i></div>
+                        <div class="icon"><i class="fas fa-book-reader" style="color: white;"></i></div>
                         <h4 class="title"><a href="#about" style="color: white;">Vision </a></h4>
                         <p style="color: white;">"Help to Build Reliable IT Infrastructure throughout 
                             various businesses of Humanity that challenges 
@@ -391,7 +429,7 @@ Author URL: http://w3layouts.com
             <div class="row justify-content-center mt-4">   
                 <div class="col-md-6 col-lg-8 d-flex align-items-stretch mt-lg-0 mt-4">
                     <div class="icon-box icon-box-clr-3" style="border-radius: 20px;background: linear-gradient(#e03e18,#8a5d26, #1f1a17)";>
-                        <div class="icon"><i class="fas fa-university"></i></div>
+                        <div class="icon"><i class="fas fa-university" style="color: white;"></i></div>
                         <h4 class="title"><a href="#about" style="color: white;">Policy</a></h4>
                         <p style="color: white;">"The primary goal of Infobhan Systems and Services is to achieve the highest standards of quality in all business unit's practices and operations without compromise. We believe in learning customers' needs and wishes to be able to anticipate their needs and develop inter dependence. Our objective is to continuously improve our company performance, while offering our customers a cost effective and professional service."</p>
                     </div>
@@ -411,7 +449,6 @@ Author URL: http://w3layouts.com
                     </div>
                     <div class="imginfo__box">
                         <h6 class="imginfo__title">Get in Touch Today!</h6>
-                        <!-- <p>Nemo enim ipsam oluptatem quia oluptas<br> sit aspernatur aut odit aut fugit. </p> -->
                         <a class="text-dark" href="tel:+97444418286"><i class="fas fa-phone-alt"></i> +974 44418286</a>
                     </div>
                     
@@ -439,9 +476,9 @@ Author URL: http://w3layouts.com
     <!-- why choose block -->
     <section class="w3l-service-1 py-5">
         <div class="container py-md-5 py-4">
-            <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+            <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:700px;">
                 <p class="text-uppercase">Why Choose Us</p>
-                <h3 class="title-style">The reliability of our services</h3>
+                <h3 class="title-style">Reliablity in service delivery</h3>
             </div>
             <div class="row content23-col-2 text-center">
                 <div class="col-md-6">
@@ -451,7 +488,7 @@ Author URL: http://w3layouts.com
                 </div>
                 <div class="col-md-6 mt-md-0 mt-4">
                     <div class="content23-grid content23-grid2">
-                        <h4><a href="about.html">Dynamic Operations Team</a></h4>
+                        <h4><a href="about.html">Agile Operations Team</a></h4>
                     </div>
                 </div>
             </div>
@@ -498,14 +535,14 @@ Author URL: http://w3layouts.com
 
     <!-- testimonials block -->
     <section class="w3l-index4 py-5" id="testimonials">
-        <div class="container py-md-5 py-4"><h3 class="text-white text-center">We Served</h3>
+        <div class="container py-md-5 py-4"><h3 class="text-white text-center">We Proudly Served</h3>
             <div class="content-slider text-center  pt-5">
                 <div class="clients-slider">
                     <div class="mask mt-3">
                         <ul>
                             <li class="anim1">
                                 <img src="./assets/images/fifalogo2.png" height="120px" width="40px" alt="logo"/>
-                                <div class="source"><a target="_blank" href="https://www.fifa.com/tournaments/mens/arabcup">FIFA Arab Cup 2021</a> & <a target="_blank" href="https://www.fifa.com/tournaments/mens/worldcup/qatar2022">FIFA 2022</a></div>
+                                <div class="source"><a target="_blank" href="https://www.fifa.com/tournaments/mens/worldcup/qatar2022">FIFA 2022</a></div>
                             </li>
                             <li class="anim2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-thermometer-sun" viewBox="0 0 16 16">
@@ -531,7 +568,7 @@ Author URL: http://w3layouts.com
                                 <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
                                     <path d="M8 .95 14.61 4h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.379l.5 2A.5.5 0 0 1 15.5 17H.5a.5.5 0 0 1-.485-.621l.5-2A.5.5 0 0 1 1 14V7H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 4h.89L8 .95zM3.776 4h8.447L8 2.05 3.776 4zM2 7v7h1V7H2zm2 0v7h2.5V7H4zm3.5 0v7h1V7h-1zm2 0v7H12V7H9.5zM13 7v7h1V7h-1zm2-1V5H1v1h14zm-.39 9H1.39l-.25 1h13.72l-.25-1z"/>
                                 </svg>
-                                <div class="source"><a target="_blank" href="https://qm.org.qa/en/">Qatar Museum Authority</a></div>
+                                <div class="source"><a target="_blank" href="https://qm.org.qa/en/">Qatar Development Bank</a></div>
                             </li>
                         </ul>
                     </div>
@@ -592,33 +629,7 @@ Author URL: http://w3layouts.com
             </div>
         </div>
     </section>
-    <!-- //call block -->
-
-    <!-- Twitter Hanldes-->
-    <!-- <div class="container" onload="loadFB()">
-        <h2 class="text-center"><b>Social Media Updates</b></h2>
-        <div class="row justify-content-center">
-            Twitter API
-            <div class="col-lg-5 col-sm-4 mx-lg-3  my-3">
-                <a id="twitterPost" class="twitter-timeline" data-lang="en" data-width="500px" data-height="500px" data-theme="light" href="https://twitter.com/InfobhanSystems?ref_src=twsrc%5Etfw">Tweets by InfobhanSystems</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-            FB API
-            <div class="col-lg-5 col-sm-4 mx-lg-3  my-3">
-                <div id="fbPost" class="fb-page" data-href="https://www.facebook.com/infobhan" data-tabs="timeline" data-width="500px" data-height="500px" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/infobhan" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/infobhan">Infobhan Systems &amp; Services</a></blockquote></div>
-            </div> 
-        </div>
-    </div> -->
-
-    <!-- <script>
-        function loadFB(){
-            if(screen.width < 500)
-            {
-                document.getElementById("fbPost").style.width=screen.width
-                document.getElementById("twitterPost").style.width=screen.width
-            }      
-        }
-    </script> -->
-
+    
     <!-- footer block -->
     <footer class="w3l-footer-29-main">
         <div class="footer-29 pt-5 pb-4">
@@ -651,7 +662,6 @@ Author URL: http://w3layouts.com
                         <ul>
                             <h6 class="footer-title-29">Social Media</h6>
                             <li><a href="https://www.linkedin.com/company/infobhan/about/"><img src="./assets/images/linkedin.png" height="20px" width="20px" alt=""/> LinkedIn</a></li>
-                            <li><a href="#privacy"><img style="background-color: aliceblue; border-radius: 5px;" src="./assets/images/iconfinder_7658978_clubhouse_brand_socials_audio_party_icon_512px.png" height="20px" width="20px" alt=""/> Clubhouse</a></li>
                             <li><a href="https://www.facebook.com/infobhan"><img src="./assets/images/facebook.png" height="20px" width="20px" alt=""/> Facebook</a></li>
                             <li><a href="https://wa.me/97444418286"><img src="./assets/images/whatsapp.webp" height="20px" width="20px" alt=""/> WhatsApp</a></li>
                         </ul>

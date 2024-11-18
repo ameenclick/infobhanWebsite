@@ -1,0 +1,17 @@
+# robots.txt for Infobhan
+
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /api/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /user/
+Disallow: /search/
+
+# Allow access to the public content
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.yourwebsite.com/sitemap.xml

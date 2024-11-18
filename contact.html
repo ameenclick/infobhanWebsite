@@ -24,12 +24,14 @@ Author URL: http://w3layouts.com
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-3YPGJ4RLGH"></script> -->
     <script>
-    // window.dataLayer = window.dataLayer || [];
-    // function gtag(){dataLayer.push(arguments);}
-    // gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    // gtag('config', 'G-3YPGJ4RLGH');
-    // </script>
+        gtag('config', 'G-3YPGJ4RLGH');
+    </script>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script>
         function pageNotFound(){
@@ -63,6 +65,9 @@ Author URL: http://w3layouts.com
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://forms.gle/Ev6aXRwB9hCiXbQb7">Career</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link  active" href="contact.html">Contact</a>
@@ -113,8 +118,14 @@ Author URL: http://w3layouts.com
                             <textarea name="message" id="contactcomment" placeholder="Type your message here"
                                 required=""></textarea>
                         </div>
-                        <div class="text-start">
-                            <button id="submit" type="submit" class="btn btn-style btn-style-3">Send Message</button>
+                        <!--Google Recaptcha for I'm not Robot-->
+                        <div class="g-recaptcha" data-sitekey="6LcPpTspAAAAALCSMaOAwbHynKx9or1JsRoHH7BB"></div>
+                        <div 
+                            class="text-start">
+                            <button 
+                                id="submit" 
+                                type="submit" 
+                                class="btn btn-style btn-style-3">Send Message</button>
                         </div>
                         <!-- Response alert -->
 						<div id="responseAlert" class="mt-3"></div>
@@ -157,43 +168,50 @@ Author URL: http://w3layouts.com
         </div>
     </section>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--Form submission javascript code embed-->
+    <script src="form.js"></script>
+   
+    <!--
     <script>
 		$(document).ready(function(){
 			// jQuery for handling the contact form submission
 			$("#contactForm").submit(function(e){
-                $("#responseAlert").html('<div class="alert alert-danger">This service is temporarly unavailable, please reachout through contact information.</div>');
+                //$("#responseAlert").html('<div class="alert alert-danger">This service is temporarly unavailable, please reachout through contact information.</div>');
                 e.preventDefault(); // Prevent the default form submission
-                return
-				// Show the loader
-                // //$("#submitting").show();
-				// // Disable submit button
-				// $("#submit").prop('disabled', true);
-				// // Perform AJAX request to send form data to sendEmail.php
-				// $.ajax({
-				// 	type: "POST",
-				// 	url: "sendEmail.php",
-				// 	data: $(this).serialize(), // Serialize the form data
-				// 	success: function(response){
-				// 		// Handle the response here (e.g., show a success message)
-				// 		var status = JSON.parse(response).status
-				// 		if (status === "success") {
-				// 			//$("#submitting").hide();
-				// 			// Disable submit button
-				// 			$("#submit").prop('disabled', false);
-				// 			$("#responseAlert").html('<div class="alert alert-success">Thank you for visting our website, we will reach out soon.</div>');
-				// 		} else {
-				// 			$("#responseAlert").html('<div class="alert alert-danger">Failed to communicate. Please try again later.</div>');
-				// 		}
-				// 	},
-				// 	error: function(){
-				// 		// Handle errors here
-				// 		$("#responseAlert").html('<div class="alert alert-danger">An error occurred. Please try again later.</div>');
-				// 	}
-				// });
-			});
+                
+                // Disable submit button
+                $("#submit").prop('disabled', true);
+                
+                // Store a reference to the form
+                var $form = $(this);
+
+                //document.getElementById("g-recaptcha-response").value = token;
+                // Perform AJAX request to send form data to sendEmail.php
+                 $.ajax({
+                    type: "POST",
+                    url: "sendEmail.php",
+                    data: $form.serialize(), // Serialize the form data
+                    success: function(response){
+                        // Handle the response here (e.g., show a success message)
+                        var status = JSON.parse(response).status
+                        if (status === "success") {
+                            //$("#submitting").hide();
+                            // Disable submit button
+                            $("#submit").prop('disabled', false);
+                            $("#responseAlert").html('<div class="alert alert-success">Thank you for visting our website, we will reach out soon.</div>');
+                        } else {
+                            $("#responseAlert").html('<div class="alert alert-danger">Failed to communicate. Please try again later.</div>');
+                        }
+                    },
+                    error: function(){
+                        // Handle errors here
+                        $("#responseAlert").html('<div class="alert alert-danger">An error occurred. Please try again later.</div>');
+                    }
+                });
+            });
 		});
-	</script>
+	</script> -->
     <!-- map -->
     <div class="map row" align="center">
             <div  class="mapoute"><div class="gmap_canvas"><iframe class="border rounded border-dark col-lg-4" width="75%" height="50%" src="https://maps.google.com/maps?q=INFOBHAN%20SYSTEMS%20AND%20SERVICES,%20Doha&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"></iframe><a href="https://123movies-a.com"></a><br><style>.mapouter{position:relative;text-align:center;height:500px;width:100%;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div></div>
@@ -236,7 +254,7 @@ Author URL: http://w3layouts.com
                             <li><a href="#privacy"><img style="background-color: aliceblue; border-radius: 5px;" src="./assets/images/iconfinder_7658978_clubhouse_brand_socials_audio_party_icon_512px.png" height="20px" width="20px" alt=""/> Clubhouse</a></li>
                             <li><a href="https://www.facebook.com/infobhan"><img src="./assets/images/facebook.png" height="20px" width="20px" alt=""/> Facebook</a></li>
                             <li><a href="https://wa.me/97444418286"><img src="./assets/images/whatsapp.webp" height="20px" width="20px" alt=""/> WhatsApp</a></li>
-                            <li><a href="https://twitter.com/InfobhanSystems"><i class="fab fa-twitter"></i> Twitter</a></li>
+                            <li><a href="https://twitter.com/InfobhanSystems"><i class="fab fa-twitter"></i> Twitter/X</a></li>
                         </ul>
                     </div>
                 </div>
