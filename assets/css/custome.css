@@ -1,0 +1,16 @@
+/* Slide-in animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%); /* Start off-screen */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0); /* End at the final position */
+        opacity: 1;
+    }
+}
+
+/* Apply the animation to the toast */
+.toastSlideIn {
+    animation: slideIn 0.5s ease-out; /* Duration and easing of the animation */
+}
