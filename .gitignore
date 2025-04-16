@@ -1,5 +1,5 @@
 .env
 
-sendEmail.php
-
 captchaVerification.php
+
+secret_config.php

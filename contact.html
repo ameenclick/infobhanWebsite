@@ -31,7 +31,9 @@ Author URL: http://w3layouts.com
         gtag('config', 'G-3YPGJ4RLGH');
     </script>
 
+    <!-- Google captach security to secure from bots filling for-->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- //Google captach security-->
 
     <script>
         function pageNotFound(){
@@ -172,7 +174,7 @@ Author URL: http://w3layouts.com
     <!--Form submission javascript code embed-->
     <script src="form.js"></script>
    
-    <!--
+    
     <script>
 		$(document).ready(function(){
 			// jQuery for handling the contact form submission
@@ -182,16 +184,27 @@ Author URL: http://w3layouts.com
                 
                 // Disable submit button
                 $("#submit").prop('disabled', true);
+
+                // Get the captcha response
+                var captchaResponse = grecaptcha.getResponse();
+                
+                // Check if captcha is completed
+                if(captchaResponse.length === 0) {
+                    // Captcha not completed
+                    alert('Please complete the captcha verification');
+                    return false;
+                }
                 
                 // Store a reference to the form
-                var $form = $(this);
+                var $form = $(this).serialize();
+                form += '&g-recaptcha-response=' + captchaResponse;
 
                 //document.getElementById("g-recaptcha-response").value = token;
                 // Perform AJAX request to send form data to sendEmail.php
                  $.ajax({
                     type: "POST",
                     url: "sendEmail.php",
-                    data: $form.serialize(), // Serialize the form data
+                    data: $form, // Serialize the form data
                     success: function(response){
                         // Handle the response here (e.g., show a success message)
                         var status = JSON.parse(response).status
@@ -211,7 +224,7 @@ Author URL: http://w3layouts.com
                 });
             });
 		});
-	</script> -->
+	</script>
     <!-- map -->
     <div class="map row" align="center">
             <div  class="mapoute"><div class="gmap_canvas"><iframe class="border rounded border-dark col-lg-4" width="75%" height="50%" src="https://maps.google.com/maps?q=INFOBHAN%20SYSTEMS%20AND%20SERVICES,%20Doha&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"></iframe><a href="https://123movies-a.com"></a><br><style>.mapouter{position:relative;text-align:center;height:500px;width:100%;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div></div>
