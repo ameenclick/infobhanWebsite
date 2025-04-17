@@ -3,76 +3,70 @@
 // Disable error display (log them instead in production)
 ini_set('display_errors', 0);
 error_reporting(E_ALL);
-ini_set('error_log', 'error.log'); // Will log to the same directory as the script
+ini_set('error_log', 'error.log');
 
 // Start output buffering to catch any stray output
 ob_start();
 header('Content-Type: application/json');
 
-$secretKey = defined('CAPTCHA_SECRET_KEY'); // Default key for testing
-
-$captcha = $_POST['g-recaptcha-response'];
-// Verify the reCAPTCHA response
-$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
-$responseKeys = json_decode($response, true);
-
-// Debug the response
-error_log('reCAPTCHA response: ' . print_r($responseData, true));
-
-if(!$responseData->success) {
-    // Captcha verification failed
-    echo json_encode(['status' => 'error', 'message' => 'Captcha verification failed. Please try again.']);
-    exit;
-}
-
-// Load AWS credentials from a file located OUTSIDE the web root directory
-// Assuming your web root is something like /home/username/public_html/
-// And this file is placed at /home/username/aws_config.php
 $credentialsFile = 'secret_config.php';
 
 if (!file_exists($credentialsFile)) {
     error_log("AWS credentials file not found: $credentialsFile");
     ob_clean();
-    echo json_encode(['status' => 'error', 'message' => 'Server configuration error.']);
+    echo json_encode(['status' => 'error', 'message' => 'Server configuration error. Config missing']);
     exit;
 }
 
 require_once $credentialsFile;
+
+// Check if secret key is defined
+if (!defined('CAPTCHA_SECRET_KEY')) {
+    error_log("CAPTCHA_SECRET_KEY not defined");
+    ob_clean();
+    echo json_encode(['status' => 'error', 'message' => 'Server configuration error. Captach not defined']);
+    exit;
+}
+
+$secretKey = defined('CAPTCHA_SECRET_KEY');
+
+if (isset($_POST['g-recaptcha-response'])) {
+    $captcha = $_POST['g-recaptcha-response'];
+    // Verify the reCAPTCHA response
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
+    $responseKeys = json_decode($response, true);
+} else {
+    $responseKeys = ["success" => 0];
+}
+
+// Load AWS credentials from a file located OUTSIDE the web root directory
 
 // Check if credentials are available
 if (!defined('AWS_REGION') || !defined('AWS_ACCESS_KEY') || !defined('AWS_SECRET_KEY') || 
     !defined('SES_SENDER_EMAIL') || !defined('SES_RECIPIENT_EMAIL')) {
     error_log("AWS credentials not properly defined in config file");
     ob_clean();
-    echo json_encode(['status' => 'error', 'message' => 'Server configuration error.']);
+    echo json_encode(['status' => 'error', 'message' => 'Server configuration error. Config missing']);
     exit;
 }
 
-try{
-
-    if(isset($_POST['name']) && isset($_POST['email']) && intval($responseKeys["success"]) === 1){
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
-        $phone = $_POST['phone'];
-
-        // Check if credentials are available
-        if (!defined('AWS_REGION') || !defined('AWS_ACCESS_KEY') || !defined('AWS_SECRET_KEY') || 
-            !defined('SES_SENDER_EMAIL') || !defined('SES_RECIPIENT_EMAIL')) {
-            error_log("AWS credentials not properly defined in config file");
-            ob_clean();
-            echo json_encode(['status' => 'error', 'message' => 'Server configuration error.']);
-            exit;
-        }
+try {
+    if(isset($_POST['name']) && isset($_POST['email']) && intval($responseKeys["success"]) === 1) {
+        $name = htmlspecialchars($_POST['name']);
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $message = htmlspecialchars($_POST['message'] ?? '');
+        $phone = htmlspecialchars($_POST['phone'] ?? '');
         
-        $email_template = file_get_contents('email_template.html');
-        $email_template = str_replace('$name', $name, $email_template);
-        $email_template = str_replace('$email', $email, $email_template);
-        $email_template = str_replace('$phone', $phone, $email_template);
-        $email_template = str_replace('$message', $message, $email_template);
+        // Define email subject
+        $fullSubject = "Contact Form Submission from $name";
+        
+        // Create text version of the email
+        $textEmailContent = "Name: $name\nEmail: $email\nPhone: $phone\nMessage: $message";
+        
+        // Generate HTML email content directly instead of reading from file
+        $htmlEmailContent = getEmailTemplate($name, $email, $phone, $message);
 
         // Construct the request
-        $date = gmdate('D, d M Y H:i:s e');
         $host = 'email.' . AWS_REGION . '.amazonaws.com';
         $endpoint = 'https://' . $host;
         
@@ -95,14 +89,15 @@ try{
         // Create the query string
         $queryString = http_build_query($payload);
         
-        // Create the signature
+        // Create the signature (AWS Signature Version 4)
         $date = gmdate('Ymd\THis\Z');
         $algorithm = 'AWS4-HMAC-SHA256';
         $credential_scope = gmdate('Ymd') . '/' . AWS_REGION . '/ses/aws4_request';
-        $signed_headers = 'host;x-amz-date';
+        $signed_headers = 'content-type;host;x-amz-date';
         
         // Step 1: Create canonical request
-        $canonical_request = "POST\n/\n\nhost:" . $host . "\nx-amz-date:" . $date . "\n\n" . $signed_headers . "\n" . hash('sha256', $queryString);
+        $canonical_headers = "content-type:application/x-www-form-urlencoded\nhost:" . $host . "\nx-amz-date:" . $date . "\n";
+        $canonical_request = "POST\n/\n\n" . $canonical_headers . "\n" . $signed_headers . "\n" . hash('sha256', $queryString);
         
         // Step 2: Create string to sign
         $string_to_sign = $algorithm . "\n" . $date . "\n" . $credential_scope . "\n" . hash('sha256', $canonical_request);
@@ -160,23 +155,26 @@ try{
         preg_match('/<MessageId>(.*?)<\/MessageId>/', $response, $messageId);
         $emailMessageId = isset($messageId[1]) ? $messageId[1] : '';
         
-        // Return success response
+        // Clean output buffer and send JSON response (not an object)
         ob_clean();
         echo json_encode([
             'status' => 'success', 
             'message' => 'Thank you! Your message has been sent.',
             'messageId' => $emailMessageId
         ]);
-
+        exit;
+    } else {
+        // Required POST parameters are missing or reCAPTCHA failed
+        ob_clean();
+        echo json_encode([
+            'status' => 'error',
+            'message' => isset($_POST['name']) && isset($_POST['email']) 
+                ? 'reCAPTCHA verification failed. Please try again.' 
+                : 'Missing or invalid form data.'
+        ]);
+        exit;
     }
-    else
-    {
-        // Required POST parameters are missing
-        $status = "failed";
-        $response = "Missing or invalid form data.";
-    }
-}
-catch (Exception $e) {
+} catch (Exception $e) {
     // Log the error message
     error_log("Error: " . $e->getMessage());
     
@@ -186,10 +184,107 @@ catch (Exception $e) {
         'status' => 'error', 
         'message' => 'An error occurred while sending your message. Please try again later.'
     ]);
+    exit;
+} finally {
+    // Clean output buffer and send the response if somehow we got here
+    if (ob_get_length()) {
+        ob_end_flush();
+    }
 }
 
-finally {
-    // Clean output buffer and send the response
-    ob_end_flush();
+/**
+ * Generate the HTML email template with the form data
+ * 
+ * @param string $name Sender's name
+ * @param string $email Sender's email
+ * @param string $phone Sender's phone
+ * @param string $message Sender's message
+ * @return string Complete HTML email content
+ */
+function getEmailTemplate($name, $email, $phone, $message) {
+    // Convert newlines to <br> tags for HTML display
+    $messageHtml = nl2br($message);
+    
+    return '
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infobhan Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            max-width: 250px;
+            height: auto;
+        }
+        .content {
+            padding: 20px;
+            border-top: 2px solid rgba(157, 114, 19, 0.4);
+            border-bottom: 2px solid rgba(157, 114, 19, 0.4);
+            margin-bottom: 20px;
+        }
+        .content h2 {
+            color: #333333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .content p {
+            color: #777777;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #9d7213;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888888;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Customer Enquiry</h1>
+        </div>
+        <div class="content">
+            <p>Hi, <br/>'.htmlspecialchars($name).' visited your website infobhan.net</p>
+            <p>Email:'.htmlspecialchars($email).'</p>
+            <p>Phone: '.htmlspecialchars($phone).'</p>
+            <p>Message: <br/>'.htmlspecialchars($messageHtml).'</p>
+        </div>
+        <div class="footer">
+            <p>You received this email from the website.</p>
+            <p>&copy; 2023 Infobhan Systems. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>';
 }
 ?>

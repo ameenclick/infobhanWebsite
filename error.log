@@ -1,0 +1,66 @@
+[16-Apr-2025 18:30:56 Europe/Berlin] PHP Warning:  Undefined variable $responseData in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 18:30:56 Europe/Berlin] reCAPTCHA response: 
+[16-Apr-2025 18:32:01 Europe/Berlin] PHP Warning:  Undefined variable $responseData in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 18:32:01 Europe/Berlin] reCAPTCHA response: 
+[16-Apr-2025 18:33:22 Europe/Berlin] PHP Warning:  Undefined variable $responseData in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 18:33:22 Europe/Berlin] reCAPTCHA response: 
+[16-Apr-2025 18:33:22 Europe/Berlin] PHP Warning:  Undefined variable $responseData in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 18:33:22 Europe/Berlin] reCAPTCHA response: 
+[16-Apr-2025 18:34:25 Europe/Berlin] PHP Warning:  Undefined variable $responseData in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 18:34:25 Europe/Berlin] reCAPTCHA response: 
+[16-Apr-2025 18:34:25 Europe/Berlin] PHP Warning:  Undefined variable $responseData in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 18:34:25 Europe/Berlin] reCAPTCHA response: 
+[16-Apr-2025 18:36:39 Europe/Berlin] PHP Warning:  Undefined variable $responseData in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 18:36:39 Europe/Berlin] reCAPTCHA response: 
+[16-Apr-2025 18:36:39 Europe/Berlin] PHP Warning:  Undefined variable $responseData in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 18:36:39 Europe/Berlin] reCAPTCHA response: 
+[16-Apr-2025 18:37:19 Europe/Berlin] PHP Warning:  Undefined variable $responseData in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 18:37:19 Europe/Berlin] reCAPTCHA response: 
+[16-Apr-2025 18:37:19 Europe/Berlin] PHP Warning:  Undefined variable $responseData in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 18:37:19 Europe/Berlin] reCAPTCHA response: 
+[16-Apr-2025 18:40:10 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 18:40:10 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:14:32 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:14:32 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:18:11 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:18:11 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:26:19 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:26:19 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:30:10 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:30:10 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:31:24 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:31:24 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:34:16 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:34:16 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:37:13 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:37:13 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[16-Apr-2025 19:38:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "CAPTCHA_SECRET_KEY" in C:\xampp\htdocs\infobhanWebsite\sendEmail.php:20
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 19:38:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "CAPTCHA_SECRET_KEY" in C:\xampp\htdocs\infobhanWebsite\sendEmail.php:20
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 19:39:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "CAPTCHA_SECRET_KEY" in C:\xampp\htdocs\infobhanWebsite\sendEmail.php:20
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[16-Apr-2025 19:39:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "CAPTCHA_SECRET_KEY" in C:\xampp\htdocs\infobhanWebsite\sendEmail.php:20
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[17-Apr-2025 07:44:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "CAPTCHA_SECRET_KEY" in C:\xampp\htdocs\infobhanWebsite\sendEmail.php:20
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[17-Apr-2025 07:44:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "CAPTCHA_SECRET_KEY" in C:\xampp\htdocs\infobhanWebsite\sendEmail.php:20
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 20
+[17-Apr-2025 07:47:24 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[17-Apr-2025 07:47:24 Europe/Berlin] CAPTCHA_SECRET_KEY not defined
+[17-Apr-2025 07:48:46 Europe/Berlin] PHP Warning:  Undefined variable $responseKeys in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 54
+[17-Apr-2025 07:48:46 Europe/Berlin] PHP Warning:  Undefined variable $responseKeys in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 54
+[17-Apr-2025 07:48:46 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 54
+[17-Apr-2025 07:48:46 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\infobhanWebsite\sendEmail.php on line 54
