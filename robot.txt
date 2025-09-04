@@ -1,6 +1,10 @@
-# robots.txt for Infobhan
+# robots.txt for Infobhan Systems & Services
+# https://www.infobhan.net
 
 User-agent: *
+Allow: /
+
+# Disallow access to private/admin areas
 Disallow: /admin/
 Disallow: /login/
 Disallow: /register/
@@ -9,9 +13,27 @@ Disallow: /cart/
 Disallow: /checkout/
 Disallow: /user/
 Disallow: /search/
+Disallow: /PHPMailer/
+Disallow: /templates/
+Disallow: /secret_config.php
+Disallow: /sendEmail.php
+Disallow: /templates.php
+Disallow: /test.php
+Disallow: /form.js
+Disallow: /error.log
 
-# Allow access to the public content
-Allow: /
+# Allow important files
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.pdf
+
+# Crawl delay (optional)
+Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://www.yourwebsite.com/sitemap.xml
+Sitemap: https://www.infobhan.net/sitemap.xml
