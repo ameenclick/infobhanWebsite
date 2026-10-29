@@ -1,0 +1,202 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Infobhan Logo Intro</title>
+<style>
+/* Layout: centred lockup. Emblem on the left, wordmark stack on the right, stacking on narrow screens.
+   Palette: white ground, near-black ink, brand red, brand gold gradient.
+   Type: Anton for the condensed wordmark, Playfair Display for the strapline. */
+:root {
+  --bg: #ffffff;
+  --ink: #111111;
+  --red: #d7262b;
+  --gold-hi: #f7e39a;
+  --gold: #c9962f;
+  --gold-lo: #7d5512;
+  --muted: #6b6b6b;
+  color-scheme: light;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding-block: 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  box-sizing: border-box;
+}
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(20px, 4vw, 48px);
+  width: 100%;
+  max-width: 1000px;
+}
+.emblem {
+  width: clamp(120px, 16vw, 170px);
+  height: auto;
+  flex: 0 0 auto;
+  max-width: 100%;
+  overflow: visible;
+}
+.text {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.word {
+  margin: 0;
+  font-family: "Anton", "Impact", "Arial Narrow", sans-serif;
+  font-weight: 400;
+  font-size: clamp(56px, 11vw, 118px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-align: center;
+  white-space: nowrap;
+  color: transparent;
+  /* Layer 1: a soft white sheen that sweeps across once. Layer 2: the gold body. */
+  background:
+    linear-gradient(100deg, transparent 40%, rgba(255,255,255,0.9) 50%, transparent 60%) 100% 0 / 300% 100% no-repeat,
+    linear-gradient(180deg, var(--gold-hi) 0%, var(--gold) 55%, var(--gold-lo) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.rule {
+  height: clamp(4px, 0.6vw, 7px);
+  background: var(--red);
+  transform-origin: center;
+  width: 100%;
+}
+.sub {
+  margin: clamp(6px, 1vw, 12px) 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: clamp(15px, 3.4vw, 36px);
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+}
+.replay {
+  font: inherit;
+  font-size: 14px;
+  color: var(--muted);
+  background: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 999px;
+  padding: 8px 18px;
+  cursor: pointer;
+}
+.replay:hover { color: var(--ink); border-color: var(--ink); }
+.replay:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+
+/* ---- Intro sequence (runs only when .intro is on the stage; resting state is the final logo) ----
+   0.0s  frame draws in
+   0.35s red block drops in, gold blocks slide in from the sides, black blocks rise
+   0.8s  wordmark resolves and the gold sheen sweeps across
+   1.7s  red rules wipe out from the centre
+   2.1s  strapline tightens into place
+   Total about 3.1s. */
+.intro .frame { animation: draw 1.1s ease-out both; }
+.intro .b-red { animation: fromTop 0.9s cubic-bezier(.2,.7,.2,1) 0.35s both; }
+.intro .b-gl  { animation: fromLeft 0.9s cubic-bezier(.2,.7,.2,1) 0.5s both; }
+.intro .b-gr  { animation: fromRight 0.9s cubic-bezier(.2,.7,.2,1) 0.5s both; }
+.intro .b-blk-l, .intro .b-blk-r { animation: fromBottom 0.9s cubic-bezier(.2,.7,.2,1) 0.65s both; }
+.intro .word {
+  animation:
+    wordIn 1.1s cubic-bezier(.2,.7,.2,1) 0.8s both,
+    sheen 1.3s ease-in-out 1.6s both;
+}
+.intro .rule-t { animation: ruleIn 0.8s ease-out 1.7s both; }
+.intro .rule-b { animation: ruleIn 0.8s ease-out 1.9s both; }
+.intro .sub { animation: subIn 1s ease-out 2.1s both; }
+
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes fromTop { from { transform: translateY(-36px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes fromBottom { from { transform: translateY(36px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes fromLeft { from { transform: translateX(-40px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes fromRight { from { transform: translateX(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes wordIn {
+  from { opacity: 0; letter-spacing: 0.22em; transform: translateY(18px); filter: blur(8px); }
+  to   { opacity: 1; letter-spacing: 0.02em; transform: none; filter: blur(0); }
+}
+@keyframes sheen {
+  from { background-position: 100% 0, 0 0; }
+  to   { background-position: 0% 0, 0 0; }
+}
+@keyframes ruleIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes subIn {
+  from { opacity: 0; letter-spacing: 0.45em; }
+  to   { opacity: 1; letter-spacing: 0.12em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro * { animation: none !important; }
+}
+</style>
+
+<main class="stage" id="stage">
+  <svg class="emblem" viewBox="0 0 280 380" role="img" aria-label="Infobhan emblem">
+    <defs>
+      <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f7e39a"/>
+        <stop offset="0.5" stop-color="#c9962f"/>
+        <stop offset="1" stop-color="#7d5512"/>
+      </linearGradient>
+    </defs>
+    <rect class="frame" pathLength="1" x="2" y="2" width="276" height="376"
+          fill="#ffffff" stroke="url(#gold)" stroke-width="4"
+          stroke-dasharray="1" stroke-dashoffset="0"/>
+    <path class="b-red" fill="#d7262b" d="M17 15H102A38 38 0 0 0 178 15H262V115H17Z"/>
+    <path class="b-gl" fill="url(#gold)" d="M17 128H104C112 160 92 188 106 236H17Z"/>
+    <path class="b-gr" fill="url(#gold)" d="M262 128H176C168 160 188 188 174 236H262Z"/>
+    <path class="b-blk-l" fill="#111111" d="M17 250H106C96 285 116 325 104 362H17Z"/>
+    <path class="b-blk-r" fill="#111111" d="M262 250H174C184 285 164 325 176 362H262Z"/>
+  </svg>
+
+  <div class="text">
+    <h1 class="word" aria-label="INFOBHAN">INFOBHAN</h1>
+    <div class="rule rule-t"></div>
+    <p class="sub">SYSTEMS &amp; SERVICES</p>
+    <div class="rule rule-b"></div>
+  </div>
+</main>
+
+<div class="controls">
+  <button class="replay" id="replay" type="button">Replay animation</button>
+</div>
+
+<script>
+(function () {
+  var stage = document.getElementById("stage");
+  var btn = document.getElementById("replay");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function play() {
+    stage.classList.remove("intro");
+    void stage.offsetWidth; // restart the CSS animations
+    stage.classList.add("intro");
+  }
+
+  if (!reduce) play();
+  btn.addEventListener("click", play);
+})();
+</script>
+
+</body></html>

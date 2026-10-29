@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="600" height="500">
+  <defs>
+    <style>
+      @keyframes blink { 0%,100% { opacity: .25 } 50% { opacity: 1 } }
+      @keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-8px) } }
+      @keyframes spin { to { transform: rotate(360deg) } }
+      @keyframes bar { 0%,100% { transform: scaleY(.35) } 50% { transform: scaleY(1) } }
+      @keyframes draw { from { stroke-dashoffset: 40 } to { stroke-dashoffset: 0 } }
+      @keyframes glow { 0%,100% { opacity: .15 } 50% { opacity: .45 } }
+      @keyframes dash { to { stroke-dashoffset: -40 } }
+      @keyframes pulseRing { 0% { transform: scale(.9); opacity: .7 } 100% { transform: scale(1.6); opacity: 0 } }
+      @keyframes twinkle { 0%,100% { transform: scale(.6); opacity: .3 } 50% { transform: scale(1.1); opacity: 1 } }
+      @keyframes typing { 0%,60%,100% { opacity: .2 } 30% { opacity: 1 } }
+      .lt { animation: blink 1.6s infinite ease-in-out; }
+      .d1 { animation-delay: 0s } .d2 { animation-delay: .4s }
+      .d3 { animation-delay: .8s } .d4 { animation-delay: 1.2s }
+      .float { animation: float 4s ease-in-out infinite; }
+      .gear { transform-box: fill-box; transform-origin: center; animation: spin 8s linear infinite; }
+      .gear2 { transform-box: fill-box; transform-origin: center; animation: spin 5s linear infinite reverse; }
+      .bar { transform-box: fill-box; transform-origin: center bottom; animation: bar 2s ease-in-out infinite; }
+      .check { stroke-dasharray: 40; animation: draw 1.8s ease-out infinite alternate; }
+      .glow { animation: glow 3s ease-in-out infinite; }
+      .trail { stroke-dasharray: 6 8; animation: dash 1.2s linear infinite; }
+      .ring { transform-box: fill-box; transform-origin: center; animation: pulseRing 2s ease-out infinite; }
+      .tw { transform-box: fill-box; transform-origin: center; animation: twinkle 2.4s ease-in-out infinite; }
+      .dot { animation: typing 1.4s infinite; }
+      .nn { animation: blink 2.2s infinite ease-in-out; }
+    </style>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 L0 0 0 40" fill="none" stroke="#9fc4e8" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6f2fc"/>
+      <stop offset="1" stop-color="#bcd9f2"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3d5a8a"/>
+      <stop offset="1" stop-color="#1b2a44"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Isometric platform -->
+  <g transform="matrix(0.866 0.5 -0.866 0.5 300 80)">
+    <rect x="40" y="40" width="320" height="320" fill="url(#plate)" stroke="#2c6fbf" stroke-width="2"/>
+    <rect x="40" y="40" width="320" height="320" fill="url(#grid)"/>
+
+    <!-- Data links between nodes -->
+    <path d="M100 120 L220 100 L300 200 L160 260 Z" fill="none" stroke="#2c6fbf" stroke-width="3" opacity=".35"/>
+    <path class="trail" d="M100 120 L220 100 L300 200" fill="none" stroke="#1fb5a8" stroke-width="4"/>
+    <path class="trail" d="M160 260 L100 120" fill="none" stroke="#e8762c" stroke-width="4"/>
+    <path class="trail" d="M220 100 L200 200 L160 260" fill="none" stroke="#7b5cd6" stroke-width="3"/>
+
+    <!-- Moving data packets -->
+    <circle r="7" fill="#e8762c">
+      <animateMotion dur="3.6s" repeatCount="indefinite" path="M100 120 L220 100 L300 200"/>
+    </circle>
+    <circle r="7" fill="#1fb5a8">
+      <animateMotion dur="3s" repeatCount="indefinite" path="M160 260 L100 120"/>
+    </circle>
+    <circle r="5" fill="#f5b82e">
+      <animateMotion dur="4.2s" begin="1s" repeatCount="indefinite" path="M220 100 L300 200 L160 260"/>
+    </circle>
+    <circle r="5" fill="#7b5cd6">
+      <animateMotion dur="3.2s" begin="2s" repeatCount="indefinite" path="M220 100 L200 200 L160 260"/>
+    </circle>
+
+    <!-- Node pads -->
+    <circle cx="100" cy="120" r="14" fill="#2c6fbf" opacity=".25" class="glow"/>
+    <circle cx="220" cy="100" r="14" fill="#2c6fbf" opacity=".25" class="glow"/>
+    <circle cx="160" cy="260" r="14" fill="#2c6fbf" opacity=".25" class="glow"/>
+    <circle cx="300" cy="200" r="14" fill="#2c6fbf" opacity=".25" class="glow"/>
+    <circle cx="200" cy="200" r="18" fill="#7b5cd6" opacity=".2" class="glow"/>
+  </g>
+
+  <!-- Server towers (back to front) -->
+  <ellipse cx="283" cy="190" rx="24" ry="9" fill="#2b3a55" opacity=".25"/>
+  <rect x="266" y="100" width="34" height="90" rx="3" fill="#2b3a55"/>
+  <rect class="lt d1" x="272" y="112" width="22" height="5" fill="#1fb5a8"/>
+  <rect class="lt d2" x="272" y="126" width="22" height="5" fill="#2c6fbf"/>
+  <rect class="lt d3" x="272" y="140" width="22" height="5" fill="#1fb5a8"/>
+  <rect class="lt d4" x="272" y="154" width="22" height="5" fill="#f5b82e"/>
+
+  <ellipse cx="404" cy="240" rx="24" ry="9" fill="#2b3a55" opacity=".25"/>
+  <rect x="387" y="150" width="34" height="90" rx="3" fill="#2b3a55"/>
+  <rect class="lt d2" x="393" y="162" width="22" height="5" fill="#2c6fbf"/>
+  <rect class="lt d4" x="393" y="176" width="22" height="5" fill="#1fb5a8"/>
+  <rect class="lt d1" x="393" y="190" width="22" height="5" fill="#e8762c"/>
+  <rect class="lt d3" x="393" y="204" width="22" height="5" fill="#1fb5a8"/>
+
+  <ellipse cx="213" cy="290" rx="24" ry="9" fill="#2b3a55" opacity=".25"/>
+  <rect x="196" y="200" width="34" height="90" rx="3" fill="#2b3a55"/>
+  <rect class="lt d3" x="202" y="212" width="22" height="5" fill="#f5b82e"/>
+  <rect class="lt d1" x="202" y="226" width="22" height="5" fill="#2c6fbf"/>
+  <rect class="lt d4" x="202" y="240" width="22" height="5" fill="#1fb5a8"/>
+  <rect class="lt d2" x="202" y="254" width="22" height="5" fill="#2c6fbf"/>
+
+  <ellipse cx="387" cy="330" rx="24" ry="9" fill="#2b3a55" opacity=".25"/>
+  <rect x="370" y="240" width="34" height="90" rx="3" fill="#2b3a55"/>
+  <rect class="lt d4" x="376" y="252" width="22" height="5" fill="#1fb5a8"/>
+  <rect class="lt d2" x="376" y="266" width="22" height="5" fill="#e8762c"/>
+  <rect class="lt d1" x="376" y="280" width="22" height="5" fill="#2c6fbf"/>
+  <rect class="lt d3" x="376" y="294" width="22" height="5" fill="#f5b82e"/>
+
+  <!-- AI processor chip -->
+  <circle cx="300" cy="262" r="30" fill="none" stroke="#7b5cd6" stroke-width="3" class="ring"/>
+  <g fill="#2b3a55">
+    <rect x="286" y="236" width="4" height="8"/><rect x="298" y="236" width="4" height="8"/><rect x="310" y="236" width="4" height="8"/>
+    <rect x="286" y="282" width="4" height="8"/><rect x="298" y="282" width="4" height="8"/><rect x="310" y="282" width="4" height="8"/>
+    <rect x="276" y="250" width="8" height="4"/><rect x="276" y="262" width="8" height="4"/><rect x="276" y="274" width="8" height="4"/>
+    <rect x="316" y="250" width="8" height="4"/><rect x="316" y="262" width="8" height="4"/><rect x="316" y="274" width="8" height="4"/>
+  </g>
+  <rect x="280" y="242" width="40" height="40" rx="7" fill="url(#chip)"/>
+  <text x="300" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff">AI</text>
+
+  <!-- Neural network -->
+  <g stroke="#2c6fbf" stroke-width="1.5" opacity=".5">
+    <line x1="228" y1="40" x2="268" y2="34"/><line x1="228" y1="40" x2="268" y2="56"/><line x1="228" y1="40" x2="268" y2="78"/>
+    <line x1="228" y1="62" x2="268" y2="34"/><line x1="228" y1="62" x2="268" y2="56"/><line x1="228" y1="62" x2="268" y2="78"/>
+    <line x1="228" y1="84" x2="268" y2="34"/><line x1="228" y1="84" x2="268" y2="56"/><line x1="228" y1="84" x2="268" y2="78"/>
+    <line x1="268" y1="34" x2="308" y2="56"/><line x1="268" y1="56" x2="308" y2="56"/><line x1="268" y1="78" x2="308" y2="56"/>
+  </g>
+  <g fill="#1fb5a8">
+    <circle class="nn d1" cx="228" cy="40" r="5"/><circle class="nn d2" cx="228" cy="62" r="5"/><circle class="nn d3" cx="228" cy="84" r="5"/>
+  </g>
+  <g fill="#7b5cd6">
+    <circle class="nn d4" cx="268" cy="34" r="5"/><circle class="nn d2" cx="268" cy="56" r="5"/><circle class="nn d1" cx="268" cy="78" r="5"/>
+  </g>
+  <circle class="nn d3" cx="308" cy="56" r="6" fill="#f5b82e"/>
+
+  <!-- Sparkle -->
+  <path class="tw" d="M430 36 Q432 56 452 58 Q432 60 430 80 Q428 60 408 58 Q428 56 430 36 Z" fill="#f5b82e"/>
+  <path class="tw d2" d="M466 120 Q467 130 476 131 Q467 132 466 142 Q465 132 456 131 Q465 130 466 120 Z" fill="#7b5cd6"/>
+
+  <!-- AI chat bubble with typing indicator -->
+  <g class="float" style="animation-delay:-3s">
+    <rect x="330" y="444" width="72" height="34" rx="10" fill="#1fb5a8"/>
+    <path d="M340 477 L332 492 L354 477 Z" fill="#1fb5a8"/>
+    <circle class="dot" cx="352" cy="461" r="3.5" fill="#ffffff"/>
+    <circle class="dot" style="animation-delay:.2s" cx="366" cy="461" r="3.5" fill="#ffffff"/>
+    <circle class="dot" style="animation-delay:.4s" cx="380" cy="461" r="3.5" fill="#ffffff"/>
+  </g>
+
+  <!-- Analytics bars -->
+  <g fill="#2c6fbf">
+    <rect class="bar d1" x="440" y="250" width="14" height="50" rx="2"/>
+    <rect class="bar d2" x="458" y="230" width="14" height="70" rx="2" fill="#1fb5a8"/>
+    <rect class="bar d3" x="476" y="240" width="14" height="60" rx="2" fill="#e8762c"/>
+    <rect class="bar d4" x="494" y="216" width="14" height="84" rx="2"/>
+  </g>
+
+  <!-- Floating: cloud -->
+  <g class="float">
+    <circle cx="482" cy="90" r="14" fill="#1fb5a8"/>
+    <circle cx="500" cy="80" r="18" fill="#1fb5a8"/>
+    <circle cx="518" cy="92" r="13" fill="#1fb5a8"/>
+    <rect x="470" y="92" width="60" height="18" rx="9" fill="#1fb5a8"/>
+  </g>
+
+  <!-- Floating: shield with check -->
+  <g class="float" style="animation-delay:-1.5s">
+    <path d="M90 92 L118 102 V126 C118 146 106 158 90 166 C74 158 62 146 62 126 V102 Z" fill="#2c6fbf"/>
+    <path class="check" d="M76 128 L87 139 L106 118" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Floating: gears -->
+  <g>
+    <circle class="gear" cx="120" cy="400" r="20" fill="none" stroke="#e8762c" stroke-width="10" stroke-dasharray="6 5"/>
+    <circle cx="120" cy="400" r="10" fill="#e8762c"/>
+    <circle class="gear2" cx="152" cy="420" r="13" fill="none" stroke="#2b3a55" stroke-width="7" stroke-dasharray="4 4"/>
+    <circle cx="152" cy="420" r="6" fill="#2b3a55"/>
+  </g>
+
+  <!-- Floating: lock -->
+  <g class="float" style="animation-delay:-2.5s">
+    <path d="M502 392 V384 A8 8 0 0 1 518 384 V392" fill="none" stroke="#2b3a55" stroke-width="4"/>
+    <rect x="496" y="390" width="28" height="22" rx="4" fill="#2b3a55"/>
+    <circle cx="510" cy="400" r="3" fill="#f5b82e"/>
+  </g>
+</svg>
