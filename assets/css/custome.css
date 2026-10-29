@@ -14,3 +14,18 @@
 .toastSlideIn {
     animation: slideIn 0.5s ease-out; /* Duration and easing of the animation */
 }
+
+/* Hero graphic fills the banner column */
+.w3l-banner .sub-banner-image {
+    width: 100%;
+    max-width: none;
+    max-height: none;
+}
+
+.w3l-banner .sub-banner-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    top: auto;
+}

@@ -59,8 +59,8 @@ Author URL: http://w3layouts.com
         "name": "Infobhan Systems & Services",
         "alternateName": "Infobhan",
         "url": "https://www.infobhan.net",
-        "logo": "https://www.infobhan.net/assets/images/Company.png",
-        "image": "https://www.infobhan.net/assets/images/Company.png",
+        "logo": "https://www.infobhan.net/assets/images/logo-arranged.png",
+        "image": "https://www.infobhan.net/assets/images/logo-arranged.png",
         "description": "Leading IT solutions provider in Qatar since 1996. Specializing in IT infrastructure, cloud solutions, hardware services, and digital transformation.",
         "foundingDate": "1996",
         "telephone": "+974-44418286",
@@ -133,7 +133,7 @@ Author URL: http://w3layouts.com
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Template CSS Style link -->
-    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" href="assets/css/style-starter.css?v=2">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3YPGJ4RLGH"></script>
@@ -147,8 +147,9 @@ Author URL: http://w3layouts.com
 
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <!-- Template CSS Style link -->
-    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" href="assets/css/style-starter.css?v=2">
     <link rel="stylesheet" href="assets/css/custome.css">
     <!--W3 Animations-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -208,57 +209,87 @@ Author URL: http://w3layouts.com
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M32296GB"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- Loading Screen -->
-    <div id="loader" class="loader">
-        <div class="loader-content">
-            <!-- Your Brand Logo -->
-            <img src="./assets/images/Company.png" alt="Infobhan">
-            <!-- Bootstrap Progress Bar -->
-			<div class="progress mt-2" style="width: 100%;">
-				<div id="progress-bar" class="progress-bar progress-bar-striped bg-dark progress-bar-animated" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Loading...</div>
-			</div>
+    <!-- Loading screen: logo intro, then reveal the page -->
+    <div id="loader" class="loader" role="status" aria-live="polite" aria-label="Loading Infobhan">
+        <div class="stage intro" id="logo-stage">
+            <svg class="emblem" viewBox="0 0 280 380" role="img" aria-label="Infobhan emblem">
+                <defs>
+                    <linearGradient id="loaderGold" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#f7e39a"/>
+                        <stop offset="0.5" stop-color="#c9962f"/>
+                        <stop offset="1" stop-color="#7d5512"/>
+                    </linearGradient>
+                </defs>
+                <rect class="frame" x="2" y="2" width="276" height="376" fill="#ffffff" stroke="url(#loaderGold)" stroke-width="4"/>
+                <path class="b-red" fill="#d7262b" d="M17 15H102A38 38 0 0 0 178 15H262V115H17Z"/>
+                <path class="b-gl" fill="url(#loaderGold)" d="M17 128H104C112 160 92 188 106 236H17Z"/>
+                <path class="b-gr" fill="url(#loaderGold)" d="M262 128H176C168 160 188 188 174 236H262Z"/>
+                <path class="b-blk-l" fill="#111111" d="M17 250H106C96 285 116 325 104 362H17Z"/>
+                <path class="b-blk-r" fill="#111111" d="M262 250H174C184 285 164 325 176 362H262Z"/>
+            </svg>
+            <div class="logo-text">
+                <div class="word" aria-hidden="true">INFOBHAN</div>
+                <div class="rule rule-t"></div>
+                <p class="sub">SYSTEMS &amp; SERVICES</p>
+                <div class="rule rule-b"></div>
+            </div>
         </div>
     </div>
 
-	<script>
-		// Wait for the page to fully load
-         // Simulate loading progress
-		function simulateLoadingProgress() {
-			
-			const progressBar = document.getElementById('progress-bar');
-			let width = 0;
+    <script>
+        (function () {
+            try {
+                var loader = document.getElementById("loader");
+                var stage = document.getElementById("logo-stage");
+                if (!loader || !stage) return;
 
-			const interval = setInterval(function () {
-					if (width >= 100) {
-						clearInterval(interval);
-						// Hide the loader after loading is complete
-						document.getElementById('loader').style.display = 'none';
-					} else {
-						width++;
-						progressBar.style.width = width + '%';
-						progressBar.setAttribute('aria-valuenow', width);
-					}
-				}, 20); // Update progress every 20ms, adjust timing as needed
-		}
+                var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                var animDone = !!reduce;
+                var pageDone = document.readyState === "complete";
+                var hidden = false;
 
-		// Start simulation when the page starts loading
-		simulateLoadingProgress();
-		// window.addEventListener("load", function () {
-		// 	// Get the loading screen element
-		// 	const loader = document.querySelector(".loader");
+                function hideLoader() {
+                    if (hidden || !animDone || !pageDone) return;
+                    hidden = true;
+                    loader.classList.add("is-done");
+                    window.setTimeout(function () {
+                        loader.style.display = "none";
+                    }, 450);
+                }
 
-		// 	// Hide the loading screen
-		// 	loader.style.display = "none";
-            
-		// });
-	</script>
+                if (!reduce) {
+                    stage.classList.add("intro");
+                    /* Strapline finishes at about 3.1s */
+                    window.setTimeout(function () {
+                        animDone = true;
+                        hideLoader();
+                    }, 3200);
+                }
+
+                window.addEventListener("load", function () {
+                    pageDone = true;
+                    hideLoader();
+                });
+
+                /* Do not leave the overlay up if load never fires */
+                window.setTimeout(function () {
+                    animDone = true;
+                    pageDone = true;
+                    hideLoader();
+                }, 8000);
+            } catch (err) {
+                var fallback = document.getElementById("loader");
+                if (fallback) fallback.style.display = "none";
+            }
+        })();
+    </script>
     <div id="body" class="w3-animate-opacity">
     <!-- header -->
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light sticky-top">
                 <a class="navbar-brand" href="index.html">
-                    <img src="./assets/images/Company.png" height="65px" width="200px" alt="Infobhan"/>  
+                    <img src="./assets/images/logo-arranged.png" height="65px" width="200px" alt="Infobhan"/>  
                 </a>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
@@ -343,8 +374,8 @@ Author URL: http://w3layouts.com
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="sub-banner-image text-center">
-                            <img src="assets/images/banner.png"  class="img-fluid" alt="Background banner">
+                        <div class="sub-banner-image">
+                            <img src="assets/images/infobhan-hero-animation-wide.svg"  class="img-fluid" alt="Background banner">
                         </div>
                         <div class="" style="opacity: 0.87;">
                             <img alt="ICV Certified" style="border-radius: 20px;" src="./assets/images/icv.jpg" class="img-fluid w3-animate-zoom" height="35%" width="35%"/>
@@ -468,7 +499,7 @@ Author URL: http://w3layouts.com
                 </div>
             </div>
             <div class="text-center mx-auto mt-5 mb-md-5 mb-4" style="max-width:500px;">
-                <h3 class="title-style">3 decades of Proven legacy.</h3>
+                <h3 class="title-style">Proven legacy.</h3>
             </div>
             <div class="row justify-content-center align-items-start">
                 <div class="col-lg-4 col-md-6">
